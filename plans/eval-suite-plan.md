@@ -1,4 +1,4 @@
-# WhatBot v2 V5 — Eval Suite Implementation Plan
+# AskJoe V5 — Eval Suite Implementation Plan
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
@@ -109,7 +109,7 @@ Map the `query` field to the new schema. Infer `expected_files` from the `source
 
 ```bash
 # Run this to extract good queries from OV3
-cd /Users/asnanabidi/Desktop/Pi\ Projects/WhatBot v2
+cd /path/to/project
 node -e "
 const fs = require('fs');
 const path = require('path');
@@ -214,7 +214,7 @@ Run a quick sanity check:
 
 ```javascript
 #!/usr/bin/env node
-// eval/run.js — WhatBot v2 V5 Test Runner
+// eval/run.js — AskJoe V5 Test Runner
 
 const fs = require('fs');
 const path = require('path');
@@ -423,7 +423,7 @@ process.on('SIGINT', () => {
 
 ```javascript
 #!/usr/bin/env node
-// eval/report.js — WhatBot v2 V5 Eval Report Generator
+// eval/report.js — AskJoe V5 Eval Report Generator
 
 const fs = require('fs');
 const path = require('path');
@@ -524,7 +524,7 @@ function generateSummary(data) {
 ```javascript
 function writeReport(data, summary, citations, contents) {
   const lines = [];
-  lines.push('# WhatBot v2 V5 — Eval Report');
+  lines.push('# AskJoe V5 — Eval Report');
   lines.push('');
   lines.push(`**Date:** ${data.timestamp}`);
   lines.push(`**Queries:** ${summary.total}`);
@@ -624,7 +624,7 @@ console.log(`\nReport saved to: ${reportFile}`);
 **- [ ] Step 1: Run the test suite on the live server**
 
 ```bash
-cd /Users/asnanabidi/Desktop/Pi\ Projects/WhatBot v2/v5
+cd /path/to/project/v5
 node eval/run.js
 ```
 
@@ -654,19 +654,19 @@ Check:
 **- [ ] Step 1: Copy eval scripts to server**
 
 ```bash
-scp -r eval/ user@YOUR_SERVER:/path/to/WhatBot v2-V2/eval/
+scp -r eval/ user@YOUR_SERVER:/path/to/AskJoe-V2/eval/
 ```
 
 **- [ ] Step 2: Run on server**
 
 ```bash
-ssh user@YOUR_SERVER "cd /path/to/WhatBot v2-V2 && node eval/run.js"
+ssh user@YOUR_SERVER "cd /path/to/AskJoe-V2 && node eval/run.js"
 ```
 
 **- [ ] Step 3: Generate report on server**
 
 ```bash
-ssh user@YOUR_SERVER "cd /path/to/WhatBot v2-V2 && node eval/report.js"
+ssh user@YOUR_SERVER "cd /path/to/AskJoe-V2 && node eval/report.js"
 ```
 
 ---

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Train WhatBot v2 v9 — Llama-3.1-8B-Instruct QLoRA
+Train AskJoe v9 — Llama-3.1-8B-Instruct QLoRA
 """
 
 import json

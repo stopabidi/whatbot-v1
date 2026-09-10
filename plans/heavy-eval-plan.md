@@ -1,4 +1,4 @@
-# WhatBot v2 V5 — Heavy Eval Plan (300 Queries)
+# AskJoe V5 — Heavy Eval Plan (300 Queries)
 
 > **For agentic workers:** Execute tasks in order. Task 1 generates queries, Task 2 runs the eval, Task 3 generates the report.
 
@@ -399,7 +399,7 @@ Changes:
 ### Task 3: Run the 300-query test
 
 ```bash
-cd /Users/asnanabidi/Desktop/Pi Projects/WhatBot v2/v5
+cd /path/to/v5
 node eval/run.js --queries eval/queries-heavy.json
 ```
 

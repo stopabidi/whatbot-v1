@@ -1,11 +1,11 @@
 """
-WhatBot v2 OV3 — Tool-Calling Architecture
+AskJoe OV3 — Tool-Calling Architecture
 
 The LLM is the brain. RAG is a tool.
-- search_documents: LLM calls this when it needs information from Joe's docs
+- search_documents: LLM calls this when it needs information from research documents
 - send_document: LLM calls this when user wants a specific file
 - Query expansion runs as a backend step when search is called
-- No CRITICAL RULES — Joe's writing style in system prompt
+- No CRITICAL RULES — writing style in system prompt
 """
 
 import asyncio
@@ -81,13 +81,13 @@ TOOLS = [
         "type": "function",
         "function": {
             "name": "search_documents",
-            "description": "Search the consulting research documents. Use this when you need specific information about consulting, strategy, management, pricing, growth, exits, or professional services.",
+            "description": "Search the consulting research documents. Use this when you need specific information from published work about consulting, strategy, management, pricing, growth, exits, or professional services.",
             "parameters": {
                 "type": "object",
                 "properties": {
                     "query": {
                         "type": "string",
-                        "description": "What to search for in Joe's documents"
+                        "description": "What to search for in research documents"
                     }
                 },
                 "required": ["query"]
@@ -118,7 +118,7 @@ TOOLS = [
 # SYSTEM PROMPT (Joe's Writing Style)
 # =============================================================================
 
-SYSTEM_PROMPT = """You are WhatBot v2, a senior consultant who specialises in professional services.
+SYSTEM_PROMPT = """You are AskJoe, a senior consultant who specialises in consulting.
 
 TOOLS:
 - search_documents: ALWAYS call this before answering ANY question about consulting, strategy, pricing, growth, exits, people, delivery, marketing, or professional services. Do NOT rely on your own knowledge. Search first, then answer from the results. Never skip the search.
@@ -269,7 +269,7 @@ def detect_query_category(query):
 
 DOCUMENT_TOPICS = {
     "7 Layers of Consulting High Performance.md": ["layers", "performance", "pyramid", "value proposition", "discovery", "education", "seven layers", "high performance", "laser-sharp", "contextual", "client success"],
-    "Managing Growth Inflection Points by Prof. Joe OMahoney - 6x9inch-print (1).pdf": ["growth", "inflection point", "plateau", "scaling", "adding services", "partner roles", "leadership roles", "critical success factors", "success factors", "traits", "characteristics"],
+    "Managing Growth Inflection Points by the author - 6x9inch-print (1).pdf": ["growth", "inflection point", "plateau", "scaling", "adding services", "partner roles", "leadership roles", "critical success factors", "success factors", "traits", "characteristics"],
     "Reading - Strategy Chapter from O_Mahoney (2021) Growth.pdf": ["strategy", "competitive", "differentiation", "positioning"],
     "Distortion Layer How Consulting Firms Get Trapped.md": ["distortion", "trap", "specialisation", "focus", "FOMO", "ego", "fear"],
     "Consulting Value Proposition Quadrant.md": ["value proposition", "quadrant", "positioning", "differentiation", "UVP"],
@@ -281,21 +281,21 @@ DOCUMENT_TOPICS = {
     "Positioning Statement Template.md": ["positioning", "statement", "template"],
     "Capability Led vs Outcome Led Value Proposition.md": ["capability", "outcome", "value proposition", "selling"],
     "Reading - eBook Pricing for Growth - A Guide for Consultancies.pdf": ["pricing models", "fee structure", "day rate", "blended rate", "charging", "how to price", "set fees", "rate card"],
-    "Beyond the Billable Hour by Prof. Joe OMahoney.pdf": ["hourly billing", "alternative fee", "retainer", "value-based pricing", "not hourly", "fixed fee", "subscription", "recurring revenue"],
+    "Beyond the Billable Hour by the author.pdf": ["hourly billing", "alternative fee", "retainer", "value-based pricing", "not hourly", "fixed fee", "subscription", "recurring revenue"],
     "Advice - Pricing Masterclass (1).pdf": ["pricing", "strategy", "fee setting", "negotiation"],
     "Reading - 10-Golden-Rules-of-Pricing-Conversations.pdf": ["pricing", "golden rules", "conversation", "negotiation"],
     "Suggested Utilisation and Revenue by Grade.md": ["utilisation", "revenue", "grade", "benchmark"],
-    "The Human Capital Engine by Prof. Joe OMahoney - A4 ebook (1) (1).pdf": ["human capital", "founder dependency", "key person", "talent", "people capability", "maturity"],
+    "The Human Capital Engine by the author - A4 ebook (1) (1).pdf": ["human capital", "founder dependency", "key person", "talent", "people capability", "maturity"],
     "Reading - Good Competence Framework.pdf.pdf": ["competence", "competency", "framework", "levels", "skills", "junior consultant", "consultant", "senior", "manager", "partner", "career progression", "job titles", "roles"],
     "Consultant Bonus Scheme.md": ["bonus", "incentive", "scheme", "consultant"],
     "Senior Consultant Bonus Scheme.md": ["bonus", "incentive", "scheme", "senior"],
     "Motivation Matrix Partner Moves.md": ["motivation", "matrix", "partner", "moves"],
     "Organisational Design for Consultancies.md": ["organisational design", "structure", "consultancy"],
     "Reading - Supporting Senior Progression - Partner.md": ["progression", "partner", "senior", "career"],
-    "The Boutique Consultancy M&A Playbook by Prof. Joe OMahoney.pdf": ["merger", "acquisition", "due diligence", "valuation", "exit"],
+    "The Boutique Consultancy M&A Playbook by the author.pdf": ["merger", "acquisition", "due diligence", "valuation", "exit"],
     "Reading - Creating The Exit Opportunity Final.pdf": ["exit", "sale", "valuation", "readiness"],
     "Reading - Private Equity and Consulting.pdf.pdf": ["private equity", "consulting", "investment"],
-    "The Owners Guide to Exit by Prof. Joe OMahoney - A5_148x210mm-print (1).pdf": ["exit", "owner", "guide", "preparation"],
+    "The Owners Guide to Exit by the author - A5_148x210mm-print (1).pdf": ["exit", "owner", "guide", "preparation"],
     "eBook - Preparing to sell your firm.docx.pdf.pdf": ["selling", "firm", "preparation", "exit"],
     "Exit options for consultancy owners v1.docx": ["exit options", "owner", "consultancy"],
     "Reading - Exit Options for a Boutique Owner.md": ["exit options", "boutique", "owner"],
@@ -303,9 +303,9 @@ DOCUMENT_TOPICS = {
     "Reading - Words that close deals.pdf.md": ["closing", "deals", "negotiation", "sales"],
     "Reading - Stages to selling your firm.md": ["selling", "stages", "process", "exit"],
     "Proposition Selling Path to High Performance.md": ["capability", "outcome", "selling", "skills", "results", "proposition", "shift from", "doing to solving", "capability selling", "outcome selling"],
-    "eBook - Account Based Marketing - Targeting the Big Fish by Prof. Joe OMahoney.pdf": ["account based marketing", "ABM", "targeting", "big fish"],
-    "Strategic Account Management by Prof. Joe OMahoney (1).pdf": ["account management", "strategic", "client relationship"],
-    "Using Thought Leadership to Boost Growth by Prof. Joe OMahoney (1).pdf": ["thought leadership", "growth", "boost"],
+    "eBook - Account Based Marketing - Targeting the Big Fish by the author.pdf": ["account based marketing", "ABM", "targeting", "big fish"],
+    "Strategic Account Management by the author (1).pdf": ["account management", "strategic", "client relationship"],
+    "Using Thought Leadership to Boost Growth by the author (1).pdf": ["thought leadership", "growth", "boost"],
     "Reading - Sales Chapter from Joe_s Book _Growth_.pdf": ["sales", "chapter", "growth", "pipeline"],
     "Opportunity Ratings.md": ["opportunity", "rating", "scoring", "qualification"],
     "Pursuit Planning.md": ["pursuit", "planning", "strategy", "sales"],
@@ -314,7 +314,7 @@ DOCUMENT_TOPICS = {
     "Marketing Strategy Framework.md": ["marketing", "strategy", "framework", "plan"],
     "Reading - Digital marketing 101 for Boutique Consultancies.pptx": ["digital marketing", "boutique", "basics"],
     "Governance Advice for PSFs.pdf": ["governance", "PSF", "professional service", "advice"],
-    "eBook - Delegation by Prof. Joe OMahoney - 6x9inch-print (4).pdf": ["delegation", "empowerment", "handover"],
+    "eBook - Delegation by the author - 6x9inch-print (4).pdf": ["delegation", "empowerment", "handover"],
     "CEO Succession Planning Workshop.docx": ["succession", "CEO", "planning", "transition"],
     "Director Exit and Handover Checklist.pdf": ["exit", "handover", "director", "checklist"],
 }
@@ -344,10 +344,10 @@ def get_topic_boost(filename, query_topics):
 # --- List-Boost Detection ---
 
 LIST_DOCUMENTS = {
-    "Managing Growth Inflection Points by Prof. Joe OMahoney - 6x9inch-print (1).pdf": ["partner roles", "leadership roles", "critical success factors"],
+    "Managing Growth Inflection Points by the author - 6x9inch-print (1).pdf": ["partner roles", "leadership roles", "critical success factors"],
     "7 Layers of Consulting High Performance.md": ["seven layers", "layers", "high performance"],
     "Reading - Good Competence Framework.pdf.pdf": ["competency levels", "career progression", "job titles"],
-    "The Boutique Consultancy M&A Playbook by Prof. Joe OMahoney.pdf": ["due diligence", "exit process", "valuation methods"],
+    "The Boutique Consultancy M&A Playbook by the author.pdf": ["due diligence", "exit process", "valuation methods"],
 }
 
 def detect_list_query(query):
@@ -811,7 +811,7 @@ def _execute_search(query):
         })
     
     if not results:
-        return "No relevant information found in Joe's documents."
+        return "No relevant information found in research documents."
     
     # Format as structured text for LLM
     formatted = []
@@ -953,6 +953,8 @@ def _markdown_to_whatsapp(text):
 
     # Bullet on own line: ensure \n before every bullet
     text = re.sub(r'(?<!\n) • ', '\n• ', text)
+    # Numbered list on own line: ensure \n before every numbered item
+    text = re.sub(r'(?<!\n)(\d+\. )', '\n\1', text)
 
     # Clean up: max 2 consecutive newlines
     text = re.sub(r'\n{3,}', '\n\n', text)
@@ -1017,7 +1019,7 @@ async def query_rag(question, history=None):
     if should_search:
         print(f"[PRE_SEARCH] Forcing search for: {question[:60]}")
         search_result = await asyncio.to_thread(_execute_search, question)
-        if search_result and search_result != "No relevant information found in Joe's documents.":
+        if search_result and search_result != "No relevant information found in research documents.":
             messages.append({"role": "tool", "tool_call_id": "pre_search", "content": search_result})
     
     # Tool calling loop (max 3 iterations to prevent infinite loops)

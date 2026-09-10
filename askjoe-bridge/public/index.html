@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AskJoe — Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#030508;--surface:rgba(13,17,26,0.75);--surface2:rgba(22,29,45,0.85);--surface-card:rgba(18,23,37,0.55);--surface-input:rgba(7,10,17,0.85);--border:rgba(255,255,255,0.08);--border2:rgba(212,163,89,0.35);--text:#f8fafc;--text2:#94a3b8;--text3:#475569;--gold:#f3ce8a;--gold-dim:#c9a25c;--gold-glow:rgba(243,206,138,0.25);--green:#10b981;--green-glow:rgba(16,185,129,0.35);--red:#f43f5e;--red-glow:rgba(244,63,94,0.35);--yellow:#fbbf24;--yellow-glow:rgba(251,191,36,0.35);--r-sm:8px;--r-md:14px;--r-lg:20px;--font:'Plus Jakarta Sans',sans-serif;--mono:'JetBrains Mono',monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:100vh;font-size:14px;line-height:1.6;overflow-x:hidden}
+
+/* Animated orbs */
+.canvas-glow{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.orb{position:absolute;border-radius:50%;filter:blur(100px);opacity:.12;animation:orbFloat 18s ease-in-out infinite alternate}
+.orb-1{top:-10%;right:-5%;width:55vw;height:55vw;background:radial-gradient(circle,#d4a359,transparent 70%)}
+.orb-2{bottom:-15%;left:-10%;width:60vw;height:60vw;background:radial-gradient(circle,#3b82f6,transparent 70%);animation-delay:-7s}
+.orb-3{top:40%;right:25%;width:35vw;height:35vw;background:radial-gradient(circle,#8b5cf6,transparent 70%);animation-delay:-12s}
+@keyframes orbFloat{0%{transform:translate(0,0) scale(1)}50%{transform:translate(-30px,40px) scale(1.08)}100%{transform:translate(40px,-20px) scale(.95)}}
+
+::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:rgba(255,255,255,.15);border-radius:99px}::-webkit-scrollbar-thumb:hover{background:var(--gold-dim)}
+
+.shell{display:flex;min-height:100vh;position:relative;z-index:1}
+
+.sidebar{width:275px;flex-shrink:0;background:var(--surface);backdrop-filter:blur(25px);-webkit-backdrop-filter:blur(25px);border-right:1px solid var(--border);padding:32px 20px;display:flex;flex-direction:column;position:sticky;top:0;height:100vh;z-index:40}
+.brand{display:flex;align-items:center;gap:14px;padding:4px 6px 36px}
+.brand .mark{width:44px;height:44px;border-radius:12px;flex-shrink:0;background:linear-gradient(135deg,#ffe7b8,var(--gold-dim),#785317);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.3em;color:#0b0701;box-shadow:0 0 25px var(--gold-glow)}
+.brand .name{font-weight:800;font-size:1.2em;letter-spacing:-.3px;display:flex;align-items:center;gap:8px}
+.brand .tag{font-size:.75em;color:var(--text2);font-weight:500;margin-top:1px}
+.brand .version{font-size:.65em;font-family:var(--mono);color:var(--gold);background:rgba(243,206,138,.12);border:1px solid rgba(243,206,138,.3);padding:2px 7px;border-radius:6px;font-weight:700}
+
+nav.tabs{display:flex;flex-direction:column;gap:8px}
+.tab{display:flex;align-items:center;gap:14px;padding:13px 18px;border-radius:var(--r-md);font-size:.92em;font-weight:600;text-align:left;color:var(--text2);background:transparent;border:1px solid transparent;cursor:pointer;transition:all .25s cubic-bezier(.16,1,.3,1);font-family:inherit}
+.tab svg{width:19px;height:19px;flex-shrink:0;stroke-width:2;transition:all .25s}
+.tab:hover{color:var(--text);background:var(--surface2);border-color:var(--border);transform:translateX(4px)}
+.tab.active{color:var(--gold);background:linear-gradient(90deg,rgba(243,206,138,.14),rgba(243,206,138,.02));border-color:var(--border2);box-shadow:0 4px 20px rgba(0,0,0,.3)}
+.tab.active svg{color:var(--gold);transform:scale(1.15);filter:drop-shadow(0 0 8px var(--gold-glow))}
+
+.sidebar-footer{margin-top:auto;padding-top:24px;border-top:1px solid var(--border)}
+.sf-row{display:flex;align-items:center;justify-content:space-between;font-size:.76em;color:var(--text3);padding:4px 0}
+.sf-row span.v{font-family:var(--mono);color:var(--text2);font-weight:600}
+.sidebar-clock{font-family:var(--mono);font-size:.78em;color:var(--text2);padding-top:12px;text-align:center;letter-spacing:.3px}
+.sidebar-credit{font-size:.68em;color:var(--text3);text-align:center;margin-top:8px}
+.sidebar-credit a{color:var(--text2);transition:color .2s}
+.sidebar-credit a:hover{color:var(--gold)}
+
+.main{flex:1;min-width:0;padding:48px 56px 100px}
+.maininner{max-width:860px;margin:0 auto}
+
+.masthead{margin-bottom:36px}
+.masthead .eyebrow{font-size:.75em;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:800;margin-bottom:6px}
+.masthead h1{font-weight:800;font-size:2.3em;letter-spacing:-1px;text-shadow:0 0 30px rgba(255,255,255,.1)}
+.masthead .sub{font-size:.95em;color:var(--text2);margin-top:4px}
+
+.section{display:none;opacity:0;transform:translateY(16px) scale(.98);transition:opacity .4s cubic-bezier(.16,1,.3,1),transform .4s cubic-bezier(.16,1,.3,1)}
+.section.active{display:block;opacity:1;transform:translateY(0) scale(1)}
+
+.card{background:var(--surface-card);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-radius:var(--r-lg);padding:28px;margin-bottom:22px;border:1px solid var(--border);box-shadow:0 20px 50px rgba(0,0,0,.4);transition:all .3s cubic-bezier(.16,1,.3,1);position:relative;overflow:hidden}
+.card:hover{border-color:var(--border2);transform:translateY(-3px);box-shadow:0 24px 60px rgba(0,0,0,.5)}
+.card h2{font-size:.82em;font-weight:800;color:var(--text2);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:22px;display:flex;align-items:center;gap:12px}
+.card h2 .icon{width:32px;height:32px;border-radius:10px;background:rgba(243,206,138,.1);border:1px solid rgba(243,206,138,.25);color:var(--gold);flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;box-shadow:0 0 15px var(--gold-glow)}
+.card h2 .icon svg{width:17px;height:17px}
+.card .hint{font-size:.88em;color:var(--text2);margin:-10px 0 20px;line-height:1.6}
+
+.row{display:flex;justify-content:space-between;align-items:center;padding:16px 0;border-bottom:1px solid var(--border)}
+.row:last-child{border-bottom:none}
+.row .label{font-size:.92em;color:var(--text2);font-weight:500}
+.row .value{font-size:.98em;font-weight:700;font-family:var(--mono)}
+
+.status-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.status-card{background:rgba(10,14,23,.6);border-radius:var(--r-md);padding:20px;border:1px solid var(--border);transition:all .25s}
+.status-card:hover{border-color:var(--border2);background:rgba(16,22,36,.8);transform:translateY(-2px)}
+.status-card .label{font-size:.76em;color:var(--text3);margin-bottom:8px;text-transform:uppercase;letter-spacing:1px;font-weight:800}
+.status-card .value{font-size:1.1em;font-weight:700;font-family:var(--mono)}
+
+.dot{display:inline-flex;align-items:center;gap:10px;font-size:.9em;font-weight:700}
+.dot::before{content:'';width:9px;height:9px;border-radius:50%}
+.dot.green::before{background:var(--green);box-shadow:0 0 14px var(--green-glow),0 0 4px var(--green);animation:pulseGlow 2s infinite}
+.dot.red::before{background:var(--red);box-shadow:0 0 14px var(--red-glow),0 0 4px var(--red);animation:pulseGlow 2s infinite}
+.dot.yellow::before{background:var(--yellow);box-shadow:0 0 14px var(--yellow-glow),0 0 4px var(--yellow);animation:pulseGlow 2s infinite}
+@keyframes pulseGlow{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.3);opacity:.6}}
+
+label{display:block;font-size:.76em;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--text2);margin-bottom:8px;margin-top:20px}
+label:first-child{margin-top:0}
+input{width:100%;padding:14px 18px;border-radius:var(--r-md);border:1px solid var(--border);background:var(--surface-input);color:var(--text);font-size:.95em;transition:all .25s;font-family:inherit}
+input::placeholder{color:var(--text3)}
+input:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 4px var(--gold-glow);background:#000}
+
+button{padding:14px 24px;border-radius:var(--r-md);border:none;font-size:.9em;font-weight:700;cursor:pointer;transition:all .25s;font-family:inherit;display:inline-flex;align-items:center;justify-content:center;gap:8px}
+button:active{transform:scale(.97)}
+.btn-primary{background:linear-gradient(135deg,#ffe5b4,var(--gold-dim));color:#0c0802;width:100%;margin-top:22px;box-shadow:0 4px 25px var(--gold-glow);font-weight:800}
+.btn-primary:hover{filter:brightness(1.15);transform:translateY(-2px);box-shadow:0 8px 30px var(--gold-glow)}
+.btn-sm{padding:8px 16px;font-size:.8em;width:auto;border-radius:var(--r-sm)}
+.btn-approve{background:rgba(16,185,129,.15);color:var(--green);border:1px solid rgba(16,185,129,.3)}
+.btn-approve:hover{background:var(--green);color:#000;font-weight:800;box-shadow:0 0 15px var(--green-glow)}
+.btn-reject{background:transparent;color:var(--red);border:1px solid rgba(244,63,94,.3)}
+.btn-reject:hover{background:rgba(244,63,94,.15);border-color:var(--red)}
+.btn-icon{padding:6px 10px;border:none;background:transparent;color:var(--text3);font-size:.95em;cursor:pointer;border-radius:var(--r-sm);transition:all .2s}
+.btn-icon:hover{color:var(--red);background:rgba(244,63,94,.15)}
+.btn-secondary{background:var(--surface2);color:var(--text);width:100%;margin-top:12px;border:1px solid var(--border)}
+.btn-secondary:hover{background:rgba(30,41,59,.9);border-color:var(--border2);color:#fff}
+
+.user-item{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:18px;border-radius:var(--r-md);background:rgba(8,12,20,.6);border:1px solid var(--border);margin-bottom:12px;transition:all .25s}
+.user-item:hover{border-color:var(--border2);background:rgba(15,21,33,.9)}
+.user-item:last-child{margin-bottom:0}
+.user-phone{font-size:.85em;font-family:var(--mono)}
+.user-alias{font-size:1em;font-weight:700;margin-top:2px}
+.user-code{font-size:.8em;color:var(--gold);font-family:var(--mono);margin-top:4px;font-weight:600}
+.user-actions{display:flex;gap:8px;flex-shrink:0}
+
+.file-item{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;border-radius:var(--r-md);background:rgba(8,12,20,.5);border:1px solid var(--border);margin-bottom:10px;transition:all .25s}
+.file-item:hover{border-color:var(--border2);background:rgba(15,21,33,.8)}
+.file-item:last-child{margin-bottom:0}
+.file-name{font-size:.9em;font-weight:600}
+.file-size{font-size:.78em;color:var(--text3);font-family:var(--mono);margin-top:2px}
+.file-dir{font-weight:800;color:var(--gold)}
+
+.upload-area{border:2px dashed rgba(243,206,138,.3);border-radius:var(--r-lg);padding:46px 24px;text-align:center;cursor:pointer;transition:all .3s;color:var(--text2);display:flex;flex-direction:column;align-items:center;gap:8px;background:rgba(8,12,20,.4)}
+.upload-area:hover,.upload-area.dragover{border-color:var(--gold);color:var(--gold);background:rgba(243,206,138,.06);transform:scale(1.01)}
+.upload-icon{width:52px;height:52px;border-radius:50%;background:rgba(243,206,138,.12);color:var(--gold);display:flex;align-items:center;justify-content:center;margin-bottom:8px;transition:transform .3s}
+.upload-area:hover .upload-icon{transform:translateY(-5px)}
+.upload-icon svg{width:26px;height:26px}
+.upload-area p{color:var(--text);font-weight:700;font-size:1em}
+.upload-formats{font-size:.78em;color:var(--text3);margin-top:4px;font-family:var(--mono)}
+
+.progress{font-size:.85em;color:var(--text2);margin-top:14px;font-weight:600;font-family:var(--mono)}
+.progress.success{color:var(--green)}.progress.error{color:var(--red)}
+.empty{text-align:center;padding:36px;color:var(--text3);font-size:.9em;font-style:italic}
+
+.category-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:4px;margin-bottom:20px}
+.category-item{background:rgba(8,12,20,.6);border-radius:var(--r-md);padding:16px;border:1px solid var(--border);transition:border-color .25s}
+.category-item:hover{border-color:var(--border2)}
+.category-name{font-weight:700;display:flex;align-items:center;gap:10px}
+.category-name svg{width:16px;height:16px;color:var(--gold)}
+.category-count{font-size:.8em;color:var(--text3);margin-top:4px;font-family:var(--mono)}
+
+.code-input{text-align:center;font-size:1.5em;font-family:var(--mono);letter-spacing:10px;padding:16px;font-weight:800}
+
+@media(max-width:900px){.shell{flex-direction:column}.sidebar{width:100%;height:auto;position:sticky;top:0;flex-direction:row;align-items:center;padding:16px 20px;border-right:none;border-bottom:1px solid var(--border);gap:18px;background:rgba(3,5,8,.9)}.brand{padding:0;flex-shrink:0}.brand .tag{display:none}nav.tabs{flex-direction:row;flex:1;overflow-x:auto;margin:0}.tab{flex-direction:row;gap:8px;padding:10px 16px;font-size:.82em;white-space:nowrap}.tab svg{width:16px;height:16px}.tab:hover{transform:none}.sidebar-footer,.sidebar-clock,.sidebar-credit{display:none}.main{padding:32px 20px 80px}.masthead h1{font-size:1.8em}}
+@media(max-width:540px){.status-grid,.category-grid{grid-template-columns:1fr}.card{padding:22px 18px}.user-item{flex-direction:column;align-items:flex-start;gap:12px}.user-actions{width:100%;justify-content:flex-end}}
+
+/* Chat */
+.chat-layout{display:flex;height:calc(100vh - 48px);gap:0;border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--border);background:var(--surface-card);min-height:500px}
+.chat-sidebar{width:260px;flex-shrink:0;background:rgba(8,12,20,.6);border-right:1px solid var(--border);display:flex;flex-direction:column}
+.chat-sidebar-header{padding:16px;border-bottom:1px solid var(--border)}
+.chat-new-btn{width:100%;padding:12px;border-radius:var(--r-md);border:1px solid var(--border2);background:rgba(243,206,138,.08);color:var(--gold);font-weight:700;font-size:.88em;cursor:pointer;transition:all .25s;font-family:inherit}
+.chat-new-btn:hover{background:rgba(243,206,138,.18);border-color:var(--gold)}
+.chat-list{flex:1;overflow-y:auto;padding:8px}
+.chat-list-item{padding:14px 16px;border-radius:var(--r-md);cursor:pointer;transition:all .2s;margin-bottom:4px;border:1px solid transparent;position:relative}
+.chat-list-item:hover{background:rgba(243,206,138,.06);border-color:var(--border)}
+.chat-list-item.active{background:rgba(243,206,138,.12);border-color:var(--border2)}
+.chat-list-title{font-size:.88em;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding-right:24px}
+.chat-list-meta{font-size:.72em;color:var(--text3);margin-top:4px;font-family:var(--mono)}
+.chat-list-del{position:absolute;right:10px;top:50%;transform:translateY(-50%);opacity:0;color:var(--text3);cursor:pointer;padding:4px;border:none;background:none;font-size:.9em;transition:all .2s}
+.chat-list-item:hover .chat-list-del{opacity:1}
+.chat-list-del:hover{color:var(--red)}
+.chat-main{flex:1;display:flex;flex-direction:column;min-width:0}
+.chat-messages{flex:1;overflow-y:auto;padding:24px;display:flex;flex-direction:column;gap:16px}
+.chat-empty{flex:1;display:flex;align-items:center;justify-content:center;color:var(--text3);font-size:.95em;text-align:center;padding:40px}
+.chat-msg{max-width:80%;padding:14px 18px;border-radius:var(--r-md);font-size:.92em;line-height:1.6;word-wrap:break-word;white-space:pre-wrap}
+.chat-msg.user{align-self:flex-end;background:rgba(243,206,138,.12);border:1px solid rgba(243,206,138,.25);color:var(--text);border-bottom-right-radius:4px}
+.chat-msg.assistant{align-self:flex-start;background:rgba(22,29,45,.85);border:1px solid var(--border);color:var(--text);border-bottom-left-radius:4px}
+.chat-sources{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.chat-source-chip{font-size:.72em;padding:4px 10px;border-radius:99px;background:rgba(243,206,138,.1);border:1px solid rgba(243,206,138,.3);color:var(--gold);font-weight:600;cursor:default}
+.chat-send-file{margin-top:10px;padding:8px 14px;border-radius:var(--r-sm);border:1px solid var(--border2);background:rgba(243,206,138,.08);color:var(--gold);font-size:.82em;font-weight:600;cursor:pointer;transition:all .2s;font-family:inherit;display:inline-flex;align-items:center;gap:6px}
+.chat-send-file:hover{background:rgba(243,206,138,.2)}
+.chat-send-file.sent{opacity:.6;pointer-events:none}
+.chat-typing{align-self:flex-start;color:var(--text3);font-size:.85em;font-style:italic;padding:8px 18px}
+.chat-input-bar{padding:16px;border-top:1px solid var(--border);display:flex;gap:10px;align-items:flex-end}
+.chat-input-bar textarea{flex:1;padding:12px 16px;border-radius:var(--r-md);border:1px solid var(--border);background:var(--surface-input);color:var(--text);font-size:.92em;resize:none;font-family:inherit;min-height:44px;max-height:120px;line-height:1.5}
+.chat-input-bar textarea::placeholder{color:var(--text3)}
+.chat-input-bar textarea:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px var(--gold-glow)}
+.chat-send-btn{padding:12px 20px;border-radius:var(--r-md);border:none;background:linear-gradient(135deg,#ffe5b4,var(--gold-dim));color:#0c0802;font-weight:800;font-size:.88em;cursor:pointer;transition:all .25s;font-family:inherit;white-space:nowrap}
+.chat-send-btn:hover{filter:brightness(1.15);transform:translateY(-1px)}
+.chat-send-btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
+@media(max-width:900px){.chat-layout{flex-direction:column;height:auto;min-height:calc(100vh - 120px)}.chat-sidebar{width:100%;max-height:200px;border-right:none;border-bottom:1px solid var(--border)}}
+</style>
+</head>
+<body>
+<div class="canvas-glow"><div class="orb orb-1"></div><div class="orb orb-2"></div><div class="orb orb-3"></div></div>
+
+<div class="shell">
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="mark">AJ</div>
+      <div><div class="name">AskJoe <span class="version">V5</span></div><div class="tag">Intelligence Console</div></div>
+    </div>
+    <nav class="tabs">
+      <button class="tab active" onclick="showTab('status')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>Status</button>
+      <button class="tab" onclick="showTab('allowlist')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Allowlist</button>
+      <button class="tab" onclick="showTab('files')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>Files</button>
+      <button class="tab" onclick="showTab('chat')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Chat</button>
+    </nav>
+    <div class="sidebar-clock" id="clock">—</div>
+    <div class="sidebar-footer">
+      <div class="sf-row"><span>Environment</span><span class="v">production</span></div>
+      <div class="sf-row"><span>Build</span><span class="v">v5.0</span></div>
+    </div>
+    <div class="sidebar-credit">AskJoe V5</div>
+  </aside>
+
+  <main class="main"><div class="maininner">
+    <div id="status" class="section active">
+      <div class="masthead"><div class="eyebrow">Overview</div><h1>System Status</h1><div class="sub">Live health of WhatsApp, model, and knowledge base.</div></div>
+      <div class="status-grid">
+        <div class="status-card"><div class="label">WhatsApp</div><div class="value" id="twilio-status"><span class="dot yellow">Loading</span></div></div>
+        <div class="status-card"><div class="label">RAG API</div><div class="value" id="svc-rag"><span class="dot yellow">Loading</span></div></div>
+        <div class="status-card"><div class="label">vLLM</div><div class="value" id="svc-vllm"><span class="dot yellow">Loading</span></div></div>
+        <div class="status-card"><div class="label">Documents</div><div class="value" id="doc-count-status">—</div></div>
+      </div>
+      <div class="card" style="margin-top:22px">
+        <h2><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 15h3M1 9h3M1 15h3"/></svg></span> Brain</h2>
+        <div class="row"><span class="label">Model</span><span class="value" id="llm-model">Gemma-4-12B IT QAT</span></div>
+        <div class="row"><span class="label">RAG</span><span class="value"><span class="dot green">Active</span></span></div>
+      </div>
+      <div class="card">
+        <h2><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></span> Knowledge Base</h2>
+        <div class="row"><span class="label">Documents</span><span class="value" id="doc-count">—</span></div>
+        <div class="row"><span class="label">Categories</span><span class="value" id="cat-count">—</span></div>
+        <div class="row"><span class="label">Index</span><span class="value" id="index-status">—</span></div>
+      </div>
+      <div class="card">
+        <h2><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span> Quick Approve</h2>
+        <p class="hint">Enter the 6-digit code a user received when they messaged the bot.</p>
+        <input id="approve-code" class="code-input" placeholder="000000" maxlength="6">
+        <label style="margin-top:16px">Name / Alias</label>
+        <input id="approve-alias" placeholder="e.g. Research Dept" required>
+        <button class="btn-primary" onclick="approveByCode()">Approve User</button>
+        <div id="approve-code-status" class="progress"></div>
+      </div>
+    </div>
+
+    <div id="allowlist" class="section">
+      <div class="masthead"><div class="eyebrow">Access Control</div><h1>Allowlist</h1><div class="sub">Manage who can reach AskJoe over WhatsApp.</div></div>
+      <div class="card">
+        <h2><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg></span> Add User</h2>
+        <label>Phone Number</label><input id="add-phone" placeholder="Phone number" style="font-family:var(--mono)">
+        <label>Alias (optional)</label><input id="add-alias" placeholder="e.g. Research Dept">
+        <button class="btn-primary" onclick="addUser()">Add to Allowlist</button><div id="add-status" class="progress"></div>
+      </div>
+      <div class="card"><h2><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span> Pending</h2><div id="pending-list"><p class="empty">Loading...</p></div></div>
+      <div class="card"><h2><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></span> Approved</h2><div id="approved-list"><p class="empty">Loading...</p></div></div>
+    </div>
+
+    <div id="files" class="section">
+      <div class="masthead"><div class="eyebrow">Content</div><h1>Document Library</h1><div class="sub">Everything AskJoe can search over.</div></div>
+      <div class="card">
+        <h2><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg></span> Upload</h2>
+        <div class="upload-area" onclick="document.getElementById('file-input').click()">
+          <div class="upload-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg></div>
+          <p>Click or drag files here</p><div class="upload-formats">PDF · DOCX · XLSX · PPTX · PNG · JPG</div>
+          <input type="file" id="file-input" accept=".pdf,.doc,.docx,.xlsx,.xls,.pptx,.ppt,.png,.jpg,.jpeg" style="display:none" onchange="uploadFile(this.files[0])">
+        </div><div id="upload-status" class="progress"></div>
+      </div>
+      <div class="card"><h2><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></span> Documents</h2>
+        <div id="doc-categories"></div><div id="doc-list"><p class="empty">Loading...</p></div>
+        <div style="display:flex;gap:8px;margin-top:12px"><button class="btn-secondary" onclick="loadDocs()" style="flex:1;margin:0">Refresh</button><button class="btn-secondary" onclick="rebuildIndex()" style="flex:1;margin:0">Rebuild Index</button></div>
+        <div id="rebuild-status" class="progress"></div>
+      </div>
+    </div>
+
+    <div id="chat" class="section">
+      <div class="masthead"><div class="eyebrow">AI Assistant</div><h1>Chat</h1><div class="sub">Ask questions about the research directly.</div></div>
+      <div class="chat-layout">
+        <div class="chat-sidebar">
+          <div class="chat-sidebar-header"><button class="chat-new-btn" onclick="chatNew()">+ New Chat</button></div>
+          <div class="chat-list" id="chat-list"><p class="empty" style="padding:20px">No chats yet</p></div>
+        </div>
+        <div class="chat-main">
+          <div class="chat-messages" id="chat-messages"><div class="chat-empty">Select a chat or start a new one</div></div>
+          <div class="chat-input-bar">
+            <textarea id="chat-input" placeholder="Ask a question..." rows="1" onkeydown="chatKeydown(event)" disabled></textarea>
+            <button class="chat-send-btn" id="chat-send-btn" onclick="chatSend()" disabled>Send</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div></main>
+</div>
+
+<script>
+let DASHBOARD_TOKEN=localStorage.getItem('askjoe_dashboard_token')||'';
+function getAuthHeaders(){const h={'Content-Type':'application/json'};if(DASHBOARD_TOKEN)h['Authorization']='Bearer '+DASHBOARD_TOKEN;return h}
+function getAuthHeadersMultipart(){const h={};if(DASHBOARD_TOKEN)h['Authorization']='Bearer '+DASHBOARD_TOKEN;return h}
+function showProgress(id,msg,type){const el=document.getElementById(id);el.textContent=msg;el.className='progress '+(type||'')}
+
+function updateClock(){const n=new Date();document.getElementById('clock').textContent=n.toLocaleDateString('en-GB',{weekday:'short',day:'numeric',month:'short'})+'  ·  '+n.toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'})}
+updateClock();setInterval(updateClock,30000);
+
+async function ensureAuth(){if(!DASHBOARD_TOKEN){const k=prompt('Enter Dashboard API Key:');if(k){DASHBOARD_TOKEN=k;localStorage.setItem('askjoe_dashboard_token',k)}}try{const r=await fetch('/api/users',{headers:getAuthHeaders()});if(r.status===401){localStorage.removeItem('askjoe_dashboard_token');DASHBOARD_TOKEN='';const k=prompt('Invalid API key. Enter the correct Dashboard API Key:');if(k){DASHBOARD_TOKEN=k;localStorage.setItem('askjoe_dashboard_token',k)}}}catch{}}
+
+function showTab(id){document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelector(`.tab[onclick="showTab('${id}')"]`).classList.add('active');if(id==='status')loadStatus();if(id==='allowlist')loadUsers();if(id==='files')loadDocs();if(id==='chat')chatLoadList()}
+
+async function loadStatus(){try{const r=await fetch('/api/status',{headers:getAuthHeaders()});const d=await r.json();document.getElementById('twilio-status').innerHTML=d.twilio?.configured?'<span class="dot green">Connected</span>':'<span class="dot red">Not Configured</span>';document.getElementById('svc-rag').innerHTML=d.services?.rag==='ok'?'<span class="dot green">Healthy</span>':'<span class="dot red">'+(d.services?.rag||'unreachable')+'</span>';document.getElementById('svc-vllm').innerHTML=d.services?.vllm==='ok'?'<span class="dot green">Healthy</span>':'<span class="dot red">'+(d.services?.vllm||'unreachable')+'</span>';if(d.knowledgeBase){document.getElementById('doc-count-status').textContent=d.knowledgeBase.indexedCount||'—'}if(d.knowledgeBase){document.getElementById('doc-count').textContent=d.knowledgeBase.documents||'—';document.getElementById('cat-count').textContent=d.knowledgeBase.categories||'—';document.getElementById('index-status').innerHTML=d.knowledgeBase.indexed?'<span class="dot green">Ready</span>':'<span class="dot yellow">Not Indexed</span>'}}catch{document.getElementById('twilio-status').innerHTML='<span class="dot red">Error</span>'}}
+
+async function loadUsers(){try{const r=await fetch('/api/users',{headers:getAuthHeaders()});const d=await r.json();const pl=document.getElementById('pending-list'),al=document.getElementById('approved-list');const pending=Object.entries(d.pending),approved=Object.entries(d.approved);pl.innerHTML=pending.length?pending.map(([jid,v])=>`<div class="user-item"><div><div class="user-phone">${jid}</div><div class="user-code">Code: ${v.code}</div><div style="margin-top:8px"><input id="alias-${jid}" placeholder="Alias" style="width:160px;padding:8px 12px;font-size:.8em;border-radius:8px;border:1px solid var(--border);background:var(--surface-input);color:var(--text);font-family:inherit"></div></div><div class="user-actions"><button class="btn-sm btn-approve" onclick="approveUser('${jid}')">Approve</button><button class="btn-sm btn-reject" onclick="rejectUser('${jid}')">Reject</button></div></div>`).join(''):'<p class="empty">No pending requests</p>';al.innerHTML=approved.length?approved.map(([jid,v])=>`<div class="user-item"><div><div class="user-alias">${v.alias||''}</div><div class="user-phone">${jid}</div></div><button class="btn-icon" onclick="removeApprovedUser('${jid}')" title="Remove">✕</button></div>`).join(''):'<p class="empty">No approved users</p>'}catch{}}
+
+async function addUser(){const phone=document.getElementById('add-phone').value.trim(),alias=document.getElementById('add-alias').value.trim();if(!phone){showProgress('add-status','Enter a phone number','error');return}showProgress('add-status','Adding...');try{const body=alias?{phone,alias}:{phone};const r=await fetch('/api/users/add',{method:'POST',headers:getAuthHeaders(),body:JSON.stringify(body)});const d=await r.json();if(r.ok){showProgress('add-status',`Added ${phone}`,'success');document.getElementById('add-phone').value='';document.getElementById('add-alias').value='';loadUsers()}else{showProgress('add-status',d.error,'error')}}catch{showProgress('add-status','Error','error')}}
+
+async function approveByCode(){const input=document.getElementById("approve-code"),code=input.value.trim();const aliasInput=document.getElementById("approve-alias"),alias=aliasInput?aliasInput.value.trim():"";if(!code||code.length!==6||!/^[\d]{6}$/.test(code)){showProgress("approve-code-status","Enter a valid 6-digit code","error");return}if(!alias){showProgress("approve-code-status","Enter a name for this user","error");return}showProgress("approve-code-status","Approving...");try{const r=await fetch("/api/users/approve-code",{method:"POST",headers:getAuthHeaders(),body:JSON.stringify({code,alias})});const d=await r.json();if(r.ok){showProgress("approve-code-status",`Approved ${d.phone}`,"success");input.value="";aliasInput.value="";loadUsers()}else{showProgress("approve-code-status",d.error,"error")}}catch{showProgress("approve-code-status","Error","error")}}
+
+async function approveUser(jid){const aliasInput=document.getElementById('alias-'+jid),alias=aliasInput?aliasInput.value.trim():'';if(!alias){alert('Enter a name for this user');return}try{const r=await fetch('/api/users/approve',{method:'POST',headers:getAuthHeaders(),body:JSON.stringify({jid,alias})});if(r.status===409){const d=await r.json();alert(d.error||'Alias already in use');return}}catch{}loadUsers()}
+async function rejectUser(jid){await fetch('/api/users/reject',{method:'POST',headers:getAuthHeaders(),body:JSON.stringify({jid})});loadUsers()}
+async function removeApprovedUser(jid){if(!confirm('Remove this user from allowlist?'))return;await fetch('/api/users/remove',{method:'POST',headers:getAuthHeaders(),body:JSON.stringify({jid})});loadUsers()}
+
+async function loadDocs(){try{const r=await fetch('/api/documents',{headers:getAuthHeaders()});const files=await r.json();const dl=document.getElementById('doc-list'),cl=document.getElementById('doc-categories');const categories={};files.forEach(f=>{if(f.isDir)categories[f.name]={count:0}});files.forEach(f=>{if(!f.isDir&&f.path.includes('/')){const cat=f.path.split('/')[0];if(categories[cat])categories[cat].count++}});const folderIcon='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M3 7a2 2 0 012-2h4l2 2h8a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V7z"/></svg>';const catEntries=Object.entries(categories);cl.innerHTML=catEntries.length?`<div class="category-grid">${catEntries.map(([n,i])=>`<div class="category-item"><div class="category-name">${folderIcon} ${n}</div><div class="category-count">${i.count} files</div></div>`).join('')}</div>`:'';dl.innerHTML=files.length?files.map(f=>`<div class="file-item"><div><span class="file-name ${f.isDir?'file-dir':''}">${f.isDir?'📁':'📄'} ${f.name}</span>${f.isDir?'':`<span class="file-size">${(f.size/1024).toFixed(0)} KB</span>`}</div><button class="btn-icon" onclick="deleteFile('${f.path.replace(/'/g,"\\'")}')" title="Delete">✕</button></div>`).join(''):'<p class="empty">No documents</p>'}catch{}}
+
+async function uploadFile(file){if(!file)return;const fd=new FormData();fd.append('file',file);showProgress('upload-status','Uploading...');try{const r=await fetch('/api/documents/upload',{method:'POST',headers:getAuthHeadersMultipart(),body:fd});const d=await r.json();if(r.ok){showProgress('upload-status',`Uploaded: ${d.filename}`,'success');loadDocs()}else{showProgress('upload-status',d.error,'error')}}catch{showProgress('upload-status','Upload failed','error')}}
+async function deleteFile(p){if(!confirm('Delete '+p+'?'))return;await fetch('/api/documents/'+encodeURIComponent(p),{method:'DELETE',headers:getAuthHeaders()});loadDocs()}
+async function rebuildIndex(){showProgress('rebuild-status','Rebuilding...');try{const r=await fetch('/api/documents/rebuild',{method:'POST',headers:getAuthHeaders()});if(r.status===429){showProgress('rebuild-status','Rate limited','error');return}if(r.status===409){showProgress('rebuild-status','Already rebuilding');return}pollRebuildStatus()}catch{showProgress('rebuild-status','Failed','error')}}
+async function pollRebuildStatus(){const iv=setInterval(async()=>{try{const r=await fetch('/api/documents/rebuild/status',{headers:getAuthHeaders()});if(!r.ok)return;const d=await r.json();if(d.state==='done'){clearInterval(iv);showProgress('rebuild-status',`Done! ${d.chunks} chunks.`,'success')}else if(d.state==='error'){clearInterval(iv);showProgress('rebuild-status',`Error: ${d.error}`,'error')}}catch{}},5000)}
+
+const ua=document.querySelector('.upload-area');if(ua){ua.addEventListener('dragover',e=>{e.preventDefault();ua.classList.add('dragover')});ua.addEventListener('dragleave',()=>ua.classList.remove('dragover'));ua.addEventListener('drop',e=>{e.preventDefault();ua.classList.remove('dragover');uploadFile(e.dataTransfer.files[0])})}
+ensureAuth();loadStatus();setInterval(loadStatus,15000);
+
+// ===== Chat =====
+let chatActiveId=null,chatSending=false;
+
+async function chatLoadList(){try{const r=await fetch('/api/chat/list',{headers:getAuthHeaders()});const chats=await r.json();const el=document.getElementById('chat-list');if(!chats.length){el.innerHTML='<p class="empty" style="padding:20px">No chats yet</p>';return}el.innerHTML=chats.map(c=>`<div class="chat-list-item ${c.id===chatActiveId?'active':''}" onclick="chatOpen('${c.id}')"><div class="chat-list-title">${esc(c.title)}</div><div class="chat-list-meta">${chatTime(c.updated)} · ${c.count} msgs</div><button class="chat-list-del" onclick="event.stopPropagation();chatDelete('${c.id}')">✕</button></div>`).join('')}catch{}}
+
+async function chatNew(){try{const r=await fetch('/api/chat/new',{method:'POST',headers:getAuthHeaders()});const d=await r.json();chatActiveId=d.id;await chatLoadList();chatOpen(d.id)}catch{}}
+
+async function chatOpen(id){chatActiveId=id;await chatLoadList();try{const r=await fetch('/api/chat/'+id,{headers:getAuthHeaders()});const chat=await r.json();const el=document.getElementById('chat-messages');if(!chat.messages.length){el.innerHTML='<div class="chat-empty">Ask something to get started</div>'}else{el.innerHTML=chat.messages.map(m=>chatRenderMsg(m)).join('');chatScrollBottom()}document.getElementById('chat-input').disabled=false;document.getElementById('chat-send-btn').disabled=false}catch{}}
+
+function chatRenderMsg(m){const cls=m.role==='user'?'user':'assistant';let html=`<div class="chat-msg ${cls}">${esc(m.text)}</div>`;if(m.role==='assistant'){if(m.sources&&m.sources.length){html+=`<div class="chat-sources">${m.sources.map(s=>`<span class="chat-source-chip">📄 ${esc(s)}</span>`).join('')}</div>`}if(m.offer_file){html+=`<button class="chat-send-file" onclick="chatSendFile(this,'${esc(m.offer_file)}')">📄 Send: ${esc(m.offer_file)}</button>`}}return html}
+
+function chatScrollBottom(){const el=document.getElementById('chat-messages');el.scrollTop=el.scrollHeight}
+
+function chatKeydown(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();chatSend()}}
+
+async function chatSend(){if(chatSending||!chatActiveId)return;const input=document.getElementById('chat-input');const q=input.value.trim();if(!q)return;chatSending=true;input.value='';input.style.height='auto';document.getElementById('chat-send-btn').disabled=true;const el=document.getElementById('chat-messages');if(el.querySelector('.chat-empty'))el.innerHTML='';el.innerHTML+=`<div class="chat-msg user">${esc(q)}</div>`;el.innerHTML+=`<div class="chat-typing" id="chat-typing">Thinking...</div>`;chatScrollBottom();try{const r=await fetch('/api/chat/'+chatActiveId+'/message',{method:'POST',headers:getAuthHeaders(),body:JSON.stringify({question:q})});const d=await r.json();document.getElementById('chat-typing')?.remove();if(r.ok){el.innerHTML+=chatRenderMsg({role:'assistant',text:d.answer,sources:d.sources,offer_file:d.offer_file});chatScrollBottom();chatLoadList()}else{el.innerHTML+=`<div class="chat-msg assistant" style="color:var(--red)">${esc(d.error||'Error')}</div>`}}catch{document.getElementById('chat-typing')?.remove();el.innerHTML+=`<div class="chat-msg assistant" style="color:var(--red)">Connection lost. Check your network.</div>`}chatSending=false;document.getElementById('chat-send-btn').disabled=false}
+
+async function chatSendFile(btn,filename){try{const r=await fetch('/api/chat/send-file',{method:'POST',headers:getAuthHeaders(),body:JSON.stringify({filename})});if(r.ok){const blob=await r.blob();const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=filename;a.click();URL.revokeObjectURL(url);btn.classList.add('sent');btn.textContent='✓ Sent'}else{btn.textContent='✕ Failed';setTimeout(()=>btn.textContent='📄 Send: '+filename,2000)}}catch{btn.textContent='✕ Failed';setTimeout(()=>btn.textContent='📄 Send: '+filename,2000)}}
+
+async function chatDelete(id){if(!confirm('Delete this chat?'))return;try{await fetch('/api/chat/'+id,{method:'DELETE',headers:getAuthHeaders()});if(chatActiveId===id){chatActiveId=null;document.getElementById('chat-messages').innerHTML='<div class="chat-empty">Select a chat or start a new one</div>';document.getElementById('chat-input').disabled=true;document.getElementById('chat-send-btn').disabled=true}chatLoadList()}catch{}}
+
+function chatTime(ts){const d=Date.now()-ts;if(d<60000)return 'just now';if(d<3600000)return Math.floor(d/60000)+'m ago';if(d<86400000)return Math.floor(d/3600000)+'h ago';return Math.floor(d/86400000)+'d ago'}
+function esc(s){const d=document.createElement('div');d.textContent=s;return d.innerHTML}
+</script>
+</body>
+</html>

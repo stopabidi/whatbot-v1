@@ -32,7 +32,7 @@
     "expected_files": [
       "Positioning Statement Template.md",
       "Building a Value Proposition for Consultancies.pdf",
-      "Managing Growth Inflection Points by Prof. Joe OMahoney - 6x9inch-print (1).pdf"
+      "Managing Growth Inflection Points by the author - 6x9inch-print (1).pdf"
     ],
     "expected_topics": [
       "competence",
@@ -200,7 +200,7 @@
     "category": "people",
     "expected_files": [
       "Reading - Headline-Hacks-for Blog and Content Writing.pdf",
-      "Managing Growth Inflection Points by Prof. Joe OMahoney - 6x9inch-print (1).pdf",
+      "Managing Growth Inflection Points by the author - 6x9inch-print (1).pdf",
       "Tool - Marketing Planner and Tracker.xlsx"
     ],
     "expected_topics": [
@@ -294,7 +294,7 @@
     "expected_files": [
       "Guide - How to do client research.pdf",
       "Reading - HBR - What Professional Service Firms Must Do to Thrive.pdf",
-      "Managing Growth Inflection Points by Prof. Joe OMahoney - 6x9inch-print (1).pdf"
+      "Managing Growth Inflection Points by the author - 6x9inch-print (1).pdf"
     ],
     "expected_topics": [],
     "conversation_history": null,
@@ -316,7 +316,7 @@
     "expected_files": [
       "Reading - Creating The Exit Opportunity Final.pdf",
       "Reading - Strategy Chapter from O_Mahoney (2021) Growth.pdf",
-      "Managing Growth Inflection Points by Prof. Joe OMahoney - 6x9inch-print (1).pdf"
+      "Managing Growth Inflection Points by the author - 6x9inch-print (1).pdf"
     ],
     "expected_topics": [],
     "conversation_history": null,
@@ -400,7 +400,7 @@
     "query": "Which document covers valuation? Send it",
     "category": "exit",
     "expected_files": [
-      "The Boutique Consultancy M&A Playbook by Prof. Joe OMahoney.pdf",
+      "The Boutique Consultancy M&A Playbook by the author.pdf",
       "Reading - Bonuses tied to valuation example.xlsx",
       "Tool - Valuation Calculator.xlsx"
     ],
@@ -478,7 +478,7 @@
     "expected_files": [
       "Reading - Creating The Exit Opportunity Final.pdf",
       "Exit options for consultancy owners v1.docx",
-      "The Owners Guide to Exit by Prof. Joe OMahoney - A5_148x210mm-print (1).pdf"
+      "The Owners Guide to Exit by the author - A5_148x210mm-print (1).pdf"
     ],
     "expected_topics": [
       "exit",
@@ -503,7 +503,7 @@
     "query": "Can you share something about people management?",
     "category": "people",
     "expected_files": [
-      "The Human Capital Engine by Prof. Joe OMahoney - A4 ebook (1) (1).pdf"
+      "The Human Capital Engine by the author - A4 ebook (1) (1).pdf"
     ],
     "expected_topics": [
       "people",
@@ -519,7 +519,7 @@
     "expected_files": [
       "Tool - Marketing Planner and Tracker.xlsx",
       "Reading - Headline-Hacks-for Blog and Content Writing.pdf",
-      "Managing Growth Inflection Points by Prof. Joe OMahoney - 6x9inch-print (1).pdf"
+      "Managing Growth Inflection Points by the author - 6x9inch-print (1).pdf"
     ],
     "expected_topics": [
       "marketing"
@@ -559,7 +559,7 @@
     "category": "delivery",
     "expected_files": [
       "Reading - Strategy Chapter from O_Mahoney (2021) Growth.pdf",
-      "Managing Growth Inflection Points by Prof. Joe OMahoney - 6x9inch-print (1).pdf",
+      "Managing Growth Inflection Points by the author - 6x9inch-print (1).pdf",
       "Workshop - UVP & Jobs to be done.pptx"
     ],
     "expected_topics": [
@@ -601,8 +601,8 @@
     "query": "I'd like a file about strategy",
     "category": "strategy",
     "expected_files": [
-      "The Owners Guide to Exit by Prof. Joe OMahoney - A5_148x210mm-print (1).pdf",
-      "Managing Growth Inflection Points by Prof. Joe OMahoney - 6x9inch-print (1).pdf",
+      "The Owners Guide to Exit by the author - A5_148x210mm-print (1).pdf",
+      "Managing Growth Inflection Points by the author - 6x9inch-print (1).pdf",
       "Reading - Partnerships and Alliances.pdf.pdf"
     ],
     "expected_topics": [
@@ -677,7 +677,7 @@
     "query": "What about retainer pricing?",
     "category": "pricing",
     "expected_files": [
-      "Managing Growth Inflection Points by Prof. Joe OMahoney - 6x9inch-print (1).pdf",
+      "Managing Growth Inflection Points by the author - 6x9inch-print (1).pdf",
       "Reading - Private Equity and Consulting.pdf.pdf",
       "Reading - 16 facts about sales.pdf.pdf"
     ],
@@ -699,7 +699,7 @@
     "query": "How do I justify higher fees to clients?",
     "category": "pricing",
     "expected_files": [
-      "Beyond the Billable Hour by Prof. Joe OMahoney.pdf",
+      "Beyond the Billable Hour by the author.pdf",
       "Reading - Sales Chapter from Joe_s Book _Growth_.pdf",
       "Closing the Deal.docx"
     ],
@@ -726,7 +726,7 @@
     "category": "pricing",
     "expected_files": [
       "Closing the Deal.docx",
-      "Beyond the Billable Hour by Prof. Joe OMahoney.pdf",
+      "Beyond the Billable Hour by the author.pdf",
       "Tool - UVP Playbook for Boutique Consultancies.pdf"
     ],
     "expected_topics": [
@@ -813,7 +813,7 @@
     "query": "How do I grow my consulting firm?",
     "category": "strategy",
     "expected_files": [
-      "Managing Growth Inflection Points by Prof. Joe OMahoney - 6x9inch-print (1).pdf",
+      "Managing Growth Inflection Points by the author - 6x9inch-print (1).pdf",
       "Reading - eBook Pricing for Growth - A Guide for Consultancies.pdf",
       "Reading - Strategy Chapter from O_Mahoney (2021) Growth.pdf"
     ],
@@ -830,7 +830,7 @@
     "query": "What are the inflection points?",
     "category": "strategy",
     "expected_files": [
-      "Managing Growth Inflection Points by Prof. Joe OMahoney - 6x9inch-print (1).pdf"
+      "Managing Growth Inflection Points by the author - 6x9inch-print (1).pdf"
     ],
     "expected_topics": [
       "inflection",
@@ -850,7 +850,7 @@
     "query": "How do I get past the founder's limit?",
     "category": "strategy",
     "expected_files": [
-      "Managing Growth Inflection Points by Prof. Joe OMahoney - 6x9inch-print (1).pdf",
+      "Managing Growth Inflection Points by the author - 6x9inch-print (1).pdf",
       "Guide - How to do client research.pdf",
       "Distortion Layer How Consulting Firms Get Trapped.md"
     ],
@@ -876,7 +876,7 @@
     "query": "What systems do I need at \u00a36m?",
     "category": "strategy",
     "expected_files": [
-      "Managing Growth Inflection Points by Prof. Joe OMahoney - 6x9inch-print (1).pdf",
+      "Managing Growth Inflection Points by the author - 6x9inch-print (1).pdf",
       "Guidance - Introduction to People Systems.pptx"
     ],
     "expected_topics": [
@@ -967,7 +967,7 @@
     "expected_files": [
       "Reading - Exit Options for a Boutique Owner.pdf",
       "Exit options for consultancy owners v1.docx",
-      "The Owners Guide to Exit by Prof. Joe OMahoney - A5_148x210mm-print (1).pdf"
+      "The Owners Guide to Exit by the author - A5_148x210mm-print (1).pdf"
     ],
     "expected_topics": [
       "exit",
@@ -1118,9 +1118,9 @@
     "query": "How do I reduce founder dependency?",
     "category": "people",
     "expected_files": [
-      "Managing Growth Inflection Points by Prof. Joe OMahoney - 6x9inch-print (1).pdf",
-      "eBook - Incentivising the Under-30s by Prof. Joe OMahoney.pdf",
-      "eBook - Delegation by Prof. Joe OMahoney - 6x9inch-print (4).pdf"
+      "Managing Growth Inflection Points by the author - 6x9inch-print (1).pdf",
+      "eBook - Incentivising the Under-30s by the author.pdf",
+      "eBook - Delegation by the author - 6x9inch-print (4).pdf"
     ],
     "expected_topics": [
       "founder",
@@ -1185,7 +1185,7 @@
     "expected_files": [
       "eBook - Preparing to sell your firm.docx.pdf.pdf",
       "Reading - Private Equity and Consulting.pdf.pdf",
-      "Managing Growth Inflection Points by Prof. Joe OMahoney - 6x9inch-print (1).pdf"
+      "Managing Growth Inflection Points by the author - 6x9inch-print (1).pdf"
     ],
     "expected_topics": [
       "succession",
@@ -1449,7 +1449,7 @@
     "expected_files": [
       "Proposition Selling Path to High Performance.md",
       "Tool - Service and Product Prioritisation and Development.pdf",
-      "Managing Growth Inflection Points by Prof. Joe OMahoney - 6x9inch-print (1).pdf"
+      "Managing Growth Inflection Points by the author - 6x9inch-print (1).pdf"
     ],
     "expected_topics": [
       "proposal",
@@ -1496,7 +1496,7 @@
     "category": "marketing",
     "expected_files": [
       "Reading - 16 facts about sales.pdf.pdf",
-      "Managing Growth Inflection Points by Prof. Joe OMahoney - 6x9inch-print (1).pdf"
+      "Managing Growth Inflection Points by the author - 6x9inch-print (1).pdf"
     ],
     "expected_topics": [
       "account",
@@ -1602,7 +1602,7 @@
     "query": "What's thought leadership?",
     "category": "marketing",
     "expected_files": [
-      "Using Thought Leadership to Boost Growth by Prof. Joe OMahoney - 6x9inch-print (2) (1).pdf"
+      "Using Thought Leadership to Boost Growth by the author - 6x9inch-print (2) (1).pdf"
     ],
     "expected_topics": [
       "thought",
@@ -1622,7 +1622,7 @@
     "query": "How do I use content marketing?",
     "category": "marketing",
     "expected_files": [
-      "eBook - developing your UVP - by Prof. Joe OMahoney.pdf",
+      "eBook - developing your UVP - by the author.pdf",
       "Guide - How to do client research.pdf",
       "Tool - Example Business Development Script for First Interaction.pdf.pdf"
     ],
@@ -1650,7 +1650,7 @@
     "expected_files": [
       "eBook - Preparing to sell your firm.docx.pdf.pdf",
       "Reading - Good Competence Framework.pdf.pdf",
-      "Managing Growth Inflection Points by Prof. Joe OMahoney - 6x9inch-print (1).pdf"
+      "Managing Growth Inflection Points by the author - 6x9inch-print (1).pdf"
     ],
     "expected_topics": [
       "LinkedIn",
@@ -1756,7 +1756,7 @@
     "query": "What's the engagement lifecycle?",
     "category": "delivery",
     "expected_files": [
-      "Managing Growth Inflection Points by Prof. Joe OMahoney - 6x9inch-print (1).pdf",
+      "Managing Growth Inflection Points by the author - 6x9inch-print (1).pdf",
       "CMC_Competency_Framework_2018.pdf",
       "Anonymised Good Competence Framework.pdf"
     ],
@@ -1778,7 +1778,7 @@
     "query": "How do I manage client expectations?",
     "category": "clients",
     "expected_files": [
-      "Strategic Account Management by Prof. Joe OMahoney (1).pdf"
+      "Strategic Account Management by the author (1).pdf"
     ],
     "expected_topics": [
       "client",
@@ -1802,7 +1802,7 @@
     "query": "What about scope creep?",
     "category": "delivery",
     "expected_files": [
-      "Managing Growth Inflection Points by Prof. Joe OMahoney - 6x9inch-print (1).pdf",
+      "Managing Growth Inflection Points by the author - 6x9inch-print (1).pdf",
       "Reading - 16 facts about sales.pdf.pdf",
       "Reading - Good Competence Framework.pdf.pdf"
     ],
@@ -1894,7 +1894,7 @@
     "query": "How do I improve utilisation?",
     "category": "costs",
     "expected_files": [
-      "Managing Growth Inflection Points by Prof. Joe OMahoney - 6x9inch-print (1).pdf",
+      "Managing Growth Inflection Points by the author - 6x9inch-print (1).pdf",
       "Reading - Strategy Chapter from O_Mahoney (2021) Growth.pdf",
       "Career Ladder Rev 00.xlsx"
     ],
@@ -1912,7 +1912,7 @@
     "category": "research",
     "expected_files": [
       "eBook - How to Create Your Strategy.pdf",
-      "eBook - Account Based Marketing - Targeting the Big Fish by Prof. Joe OMahoney.pdf",
+      "eBook - Account Based Marketing - Targeting the Big Fish by the author.pdf",
       "Reading - CRM _ Sales Metrics.pdf.pdf"
     ],
     "expected_topics": [
@@ -1959,7 +1959,7 @@
     "query": "What about overhead management?",
     "category": "costs",
     "expected_files": [
-      "Managing Growth Inflection Points by Prof. Joe OMahoney - 6x9inch-print (1).pdf",
+      "Managing Growth Inflection Points by the author - 6x9inch-print (1).pdf",
       "Reading - eBook Pricing for Growth - A Guide for Consultancies.pdf",
       "Consulting Dashboard KPIs.md"
     ],
@@ -2050,7 +2050,7 @@
     "query": "How do I set up governance?",
     "category": "governance",
     "expected_files": [
-      "Managing Growth Inflection Points by Prof. Joe OMahoney - 6x9inch-print (1).pdf",
+      "Managing Growth Inflection Points by the author - 6x9inch-print (1).pdf",
       "Guide - How to do client research.pdf",
       "Guidance - Introduction to People Systems.pptx"
     ],
@@ -2089,8 +2089,8 @@
     "query": "How do I make better decisions?",
     "category": "governance",
     "expected_files": [
-      "The Owners Guide to Exit by Prof. Joe OMahoney - A5_148x210mm-print (1).pdf",
-      "Managing Growth Inflection Points by Prof. Joe OMahoney - 6x9inch-print (1).pdf",
+      "The Owners Guide to Exit by the author - A5_148x210mm-print (1).pdf",
+      "Managing Growth Inflection Points by the author - 6x9inch-print (1).pdf",
       "Reading - Creating The Exit Opportunity Final.pdf"
     ],
     "expected_topics": [
@@ -2115,7 +2115,7 @@
     "query": "What about accountability structures?",
     "category": "governance",
     "expected_files": [
-      "Managing Growth Inflection Points by Prof. Joe OMahoney - 6x9inch-print (1).pdf",
+      "Managing Growth Inflection Points by the author - 6x9inch-print (1).pdf",
       "Reading - Good Competence Framework.pdf.pdf"
     ],
     "expected_topics": [
@@ -2289,7 +2289,7 @@
     "query": "What's the difference between capability-led and outcome-led?",
     "category": "strategy",
     "expected_files": [
-      "Managing Growth Inflection Points by Prof. Joe OMahoney - 6x9inch-print (1).pdf",
+      "Managing Growth Inflection Points by the author - 6x9inch-print (1).pdf",
       "Reading - Strategy Chapter from O_Mahoney (2021) Growth.pdf",
       "Reading - Good Competence Framework.pdf.pdf"
     ],
@@ -2323,7 +2323,7 @@
     "query": "What are the critical success factors for consulting firms?",
     "category": "strategy",
     "expected_files": [
-      "Managing Growth Inflection Points by Prof. Joe OMahoney - 6x9inch-print (1).pdf"
+      "Managing Growth Inflection Points by the author - 6x9inch-print (1).pdf"
     ],
     "expected_topics": [
       "success",
@@ -2338,9 +2338,9 @@
     "query": "How do I stay disciplined in my niche?",
     "category": "strategy",
     "expected_files": [
-      "The Human Capital Engine by Prof. Joe OMahoney - A4 ebook (1) (1).pdf",
-      "Strategic Account Management by Prof. Joe OMahoney (1).pdf",
-      "The Owners Guide to Exit by Prof. Joe OMahoney - A5_148x210mm-print (1).pdf"
+      "The Human Capital Engine by the author - A4 ebook (1) (1).pdf",
+      "Strategic Account Management by the author (1).pdf",
+      "The Owners Guide to Exit by the author - A5_148x210mm-print (1).pdf"
     ],
     "expected_topics": [
       "discipline",
@@ -2355,8 +2355,8 @@
     "query": "What's the shift from doing to solving?",
     "category": "strategy",
     "expected_files": [
-      "Maximising Post-Merger Synergies by Prof. Joe OMahoney - 6x9inch-print (2).pdf",
-      "Managing Growth Inflection Points by Prof. Joe OMahoney - 6x9inch-print (1).pdf",
+      "Maximising Post-Merger Synergies by the author - 6x9inch-print (2).pdf",
+      "Managing Growth Inflection Points by the author - 6x9inch-print (1).pdf",
       "Proposition Selling Path to High Performance.md"
     ],
     "expected_topics": [
@@ -2389,7 +2389,7 @@
     "query": "What frameworks exist for strategic planning?",
     "category": "strategy",
     "expected_files": [
-      "Managing Growth Inflection Points by Prof. Joe OMahoney - 6x9inch-print (1).pdf",
+      "Managing Growth Inflection Points by the author - 6x9inch-print (1).pdf",
       "Reading - Good Competence Framework.pdf.pdf"
     ],
     "expected_topics": [
@@ -2423,7 +2423,7 @@
     "category": "strategy",
     "expected_files": [
       "Proposition Selling Path to High Performance.md",
-      "Beyond the Billable Hour by Prof. Joe OMahoney.pdf",
+      "Beyond the Billable Hour by the author.pdf",
       "Reading - Sales Chapter from Joe_s Book _Growth_.pdf"
     ],
     "expected_topics": [
@@ -2474,7 +2474,7 @@
     "category": "pricing",
     "expected_files": [
       "Reading - 10-Golden-Rules-of-Pricing-Conversations.pdf_4.pdf",
-      "Beyond the Billable Hour by Prof. Joe OMahoney.pdf"
+      "Beyond the Billable Hour by the author.pdf"
     ],
     "expected_topics": [
       "golden",
@@ -2489,8 +2489,8 @@
     "query": "How do I move from hourly to value-based pricing?",
     "category": "pricing",
     "expected_files": [
-      "Managing Growth Inflection Points by Prof. Joe OMahoney - 6x9inch-print (1).pdf",
-      "The Owners Guide to Exit by Prof. Joe OMahoney - A5_148x210mm-print (1).pdf"
+      "Managing Growth Inflection Points by the author - 6x9inch-print (1).pdf",
+      "The Owners Guide to Exit by the author - A5_148x210mm-print (1).pdf"
     ],
     "expected_topics": [
       "hourly",
@@ -2505,7 +2505,7 @@
     "query": "What's the blended rate model?",
     "category": "pricing",
     "expected_files": [
-      "Beyond the Billable Hour by Prof. Joe OMahoney.pdf",
+      "Beyond the Billable Hour by the author.pdf",
       "Consulting Dashboard KPIs.md",
       "Reading - Consultancy-Marketing-Now.pdf"
     ],
@@ -2524,7 +2524,7 @@
     "expected_files": [
       "Closing the Deal.docx",
       "Reading - Words that close deals.pdf.pdf",
-      "Beyond the Billable Hour by Prof. Joe OMahoney.pdf"
+      "Beyond the Billable Hour by the author.pdf"
     ],
     "expected_topics": [
       "price",
@@ -2539,8 +2539,8 @@
     "query": "What's the anchor technique in pricing?",
     "category": "pricing",
     "expected_files": [
-      "Beyond the Billable Hour by Prof. Joe OMahoney.pdf",
-      "eBook - Account Based Marketing - Targeting the Big Fish by Prof. Joe OMahoney.pdf"
+      "Beyond the Billable Hour by the author.pdf",
+      "eBook - Account Based Marketing - Targeting the Big Fish by the author.pdf"
     ],
     "expected_topics": [
       "anchor",
@@ -2572,7 +2572,7 @@
     "query": "What are the common pricing mistakes?",
     "category": "pricing",
     "expected_files": [
-      "Managing Growth Inflection Points by Prof. Joe OMahoney - 6x9inch-print (1).pdf",
+      "Managing Growth Inflection Points by the author - 6x9inch-print (1).pdf",
       "Reading - Strategy Chapter from O_Mahoney (2021) Growth.pdf",
       "Reading - Good Competence Framework.pdf.pdf"
     ],
@@ -2605,7 +2605,7 @@
     "query": "What's the utilisation benchmark for pricing?",
     "category": "pricing",
     "expected_files": [
-      "The Human Capital Engine by Prof. Joe OMahoney - A4 ebook (1) (1).pdf",
+      "The Human Capital Engine by the author - A4 ebook (1) (1).pdf",
       "Reading - Strategy Chapter from O_Mahoney (2021) Growth.pdf",
       "Suggested Utilisation and Revenue by Grade.md"
     ],
@@ -2622,9 +2622,9 @@
     "query": "How do I justify premium pricing?",
     "category": "pricing",
     "expected_files": [
-      "Beyond the Billable Hour by Prof. Joe OMahoney.pdf",
+      "Beyond the Billable Hour by the author.pdf",
       "Reading - Sales Chapter from Joe_s Book _Growth_.pdf",
-      "Strategic Account Management by Prof. Joe OMahoney (1).pdf"
+      "Strategic Account Management by the author (1).pdf"
     ],
     "expected_topics": [
       "premium",
@@ -2640,7 +2640,7 @@
     "category": "pricing",
     "expected_files": [
       "Reading - Strategy Chapter from O_Mahoney (2021) Growth.pdf",
-      "Managing Growth Inflection Points by Prof. Joe OMahoney - 6x9inch-print (1).pdf",
+      "Managing Growth Inflection Points by the author - 6x9inch-print (1).pdf",
       "Reading - Example EMI Scheme Plan.pdf.pdf"
     ],
     "expected_topics": [
@@ -2709,7 +2709,7 @@
     "expected_files": [
       "Reading - Exit Options for a Boutique Owner.pdf",
       "Exit options for consultancy owners v1.docx",
-      "The Owners Guide to Exit by Prof. Joe OMahoney - A5_148x210mm-print (1).pdf"
+      "The Owners Guide to Exit by the author - A5_148x210mm-print (1).pdf"
     ],
     "expected_topics": [
       "exit",
@@ -2807,7 +2807,7 @@
     "expected_files": [
       "Reading - Creating The Exit Opportunity Final.pdf",
       "Exit options for consultancy owners v1.docx",
-      "The Owners Guide to Exit by Prof. Joe OMahoney - A5_148x210mm-print (1).pdf"
+      "The Owners Guide to Exit by the author - A5_148x210mm-print (1).pdf"
     ],
     "expected_topics": [
       "attractive",
@@ -2822,7 +2822,7 @@
     "query": "What's the exit timeline?",
     "category": "exit",
     "expected_files": [
-      "The Owners Guide to Exit by Prof. Joe OMahoney - A5_148x210mm-print (1).pdf",
+      "The Owners Guide to Exit by the author - A5_148x210mm-print (1).pdf",
       "Reading - Creating The Exit Opportunity Final.pdf",
       "Exit options for consultancy owners v1.docx"
     ],
@@ -2839,7 +2839,7 @@
     "query": "How do I handle the transition?",
     "category": "exit",
     "expected_files": [
-      "Beyond the Billable Hour by Prof. Joe OMahoney.pdf",
+      "Beyond the Billable Hour by the author.pdf",
       "Reading - Strategy Chapter from O_Mahoney (2021) Growth.pdf",
       "Reading - Headline-Hacks-for Blog and Content Writing.pdf"
     ],
@@ -2891,7 +2891,7 @@
     "category": "exit",
     "expected_files": [
       "Career Ladder Rev 00.xlsx",
-      "Managing Growth Inflection Points by Prof. Joe OMahoney - 6x9inch-print (1).pdf",
+      "Managing Growth Inflection Points by the author - 6x9inch-print (1).pdf",
       "Skills and Experience Matrix.xlsx"
     ],
     "expected_topics": [
@@ -2908,7 +2908,7 @@
     "category": "exit",
     "expected_files": [
       "Reading - Headline-Hacks-for Blog and Content Writing.pdf",
-      "Beyond the Billable Hour by Prof. Joe OMahoney.pdf",
+      "Beyond the Billable Hour by the author.pdf",
       "MEDPICC Qualification Guide.pdf"
     ],
     "expected_topics": [
@@ -2924,7 +2924,7 @@
     "query": "What's the post-exit handover?",
     "category": "exit",
     "expected_files": [
-      "Maximising Post-Merger Synergies by Prof. Joe OMahoney - 6x9inch-print (2).pdf",
+      "Maximising Post-Merger Synergies by the author - 6x9inch-print (2).pdf",
       "Reading - Strategy Chapter from O_Mahoney (2021) Growth.pdf"
     ],
     "expected_topics": [
@@ -2942,7 +2942,7 @@
     "expected_files": [
       "CEO Succession Planning Workshop.docx",
       "30-60-90 day plan for new leader.pdf",
-      "Managing Growth Inflection Points by Prof. Joe OMahoney - 6x9inch-print (1).pdf"
+      "Managing Growth Inflection Points by the author - 6x9inch-print (1).pdf"
     ],
     "expected_topics": [
       "life",
@@ -2957,9 +2957,9 @@
     "query": "How do I reduce founder dependency?",
     "category": "people",
     "expected_files": [
-      "Managing Growth Inflection Points by Prof. Joe OMahoney - 6x9inch-print (1).pdf",
-      "eBook - Incentivising the Under-30s by Prof. Joe OMahoney.pdf",
-      "eBook - Delegation by Prof. Joe OMahoney - 6x9inch-print (4).pdf"
+      "Managing Growth Inflection Points by the author - 6x9inch-print (1).pdf",
+      "eBook - Incentivising the Under-30s by the author.pdf",
+      "eBook - Delegation by the author - 6x9inch-print (4).pdf"
     ],
     "expected_topics": [
       "founder",
@@ -3009,8 +3009,8 @@
     "category": "people",
     "expected_files": [
       "Motivation Matrix Partner Moves.md",
-      "eBook - Incentivising the Under-30s by Prof. Joe OMahoney.pdf",
-      "Maximising Post-Merger Synergies by Prof. Joe OMahoney - 6x9inch-print (2).pdf"
+      "eBook - Incentivising the Under-30s by the author.pdf",
+      "Maximising Post-Merger Synergies by the author - 6x9inch-print (2).pdf"
     ],
     "expected_topics": [
       "motivation",
@@ -3027,7 +3027,7 @@
     "expected_files": [
       "Reading - Headline-Hacks-for Blog and Content Writing.pdf",
       "Reading - Strategy Chapter from O_Mahoney (2021) Growth.pdf",
-      "Beyond the Billable Hour by Prof. Joe OMahoney.pdf"
+      "Beyond the Billable Hour by the author.pdf"
     ],
     "expected_topics": [
       "underperformance",
@@ -3060,7 +3060,7 @@
     "category": "people",
     "expected_files": [
       "Reading - Joe_s Guide to Creating a Comprehensive Skills Development Pathway.pdf",
-      "eBook - developing your UVP - by Prof. Joe OMahoney.pdf",
+      "eBook - developing your UVP - by the author.pdf",
       "Reading - CMI - management-consultancy-competence-framework.pdf"
     ],
     "expected_topics": [
@@ -3093,9 +3093,9 @@
     "query": "How do I retain top talent?",
     "category": "people",
     "expected_files": [
-      "eBook - Incentivising the Under-30s by Prof. Joe OMahoney.pdf",
-      "The Boutique Consultancy M&A Playbook by Prof. Joe OMahoney.pdf",
-      "Managing Growth Inflection Points by Prof. Joe OMahoney - 6x9inch-print (1).pdf"
+      "eBook - Incentivising the Under-30s by the author.pdf",
+      "The Boutique Consultancy M&A Playbook by the author.pdf",
+      "Managing Growth Inflection Points by the author - 6x9inch-print (1).pdf"
     ],
     "expected_topics": [
       "retain",
@@ -3127,7 +3127,7 @@
     "query": "How do I manage partner dynamics?",
     "category": "people",
     "expected_files": [
-      "Strategic Account Management by Prof. Joe OMahoney (1).pdf"
+      "Strategic Account Management by the author (1).pdf"
     ],
     "expected_topics": [
       "partner",
@@ -3142,7 +3142,7 @@
     "query": "What's the delegation framework?",
     "category": "people",
     "expected_files": [
-      "eBook - Delegation by Prof. Joe OMahoney - 6x9inch-print (4).pdf",
+      "eBook - Delegation by the author - 6x9inch-print (4).pdf",
       "Anonymised Good Competence Framework.pdf"
     ],
     "expected_topics": [
@@ -3175,7 +3175,7 @@
     "query": "What's the human capital engine?",
     "category": "people",
     "expected_files": [
-      "The Human Capital Engine by Prof. Joe OMahoney - A4 ebook (1) (1).pdf"
+      "The Human Capital Engine by the author - A4 ebook (1) (1).pdf"
     ],
     "expected_topics": [
       "human",
@@ -3224,7 +3224,7 @@
     "query": "What's thought leadership?",
     "category": "marketing",
     "expected_files": [
-      "Using Thought Leadership to Boost Growth by Prof. Joe OMahoney - 6x9inch-print (2) (1).pdf"
+      "Using Thought Leadership to Boost Growth by the author - 6x9inch-print (2) (1).pdf"
     ],
     "expected_topics": [
       "thought",
@@ -3239,7 +3239,7 @@
     "query": "How do I use content marketing?",
     "category": "marketing",
     "expected_files": [
-      "eBook - developing your UVP - by Prof. Joe OMahoney.pdf",
+      "eBook - developing your UVP - by the author.pdf",
       "Guide - How to do client research.pdf",
       "Tool - Example Business Development Script for First Interaction.pdf.pdf"
     ],
@@ -3256,7 +3256,7 @@
     "query": "What's account-based marketing?",
     "category": "marketing",
     "expected_files": [
-      "eBook - Account Based Marketing - Targeting the Big Fish by Prof. Joe OMahoney.pdf"
+      "eBook - Account Based Marketing - Targeting the Big Fish by the author.pdf"
     ],
     "expected_topics": [
       "account",
@@ -3305,7 +3305,7 @@
     "category": "marketing",
     "expected_files": [
       "Tool - Example Business Development Script for First Interaction.pdf.pdf",
-      "eBook - developing your UVP - by Prof. Joe OMahoney.pdf",
+      "eBook - developing your UVP - by the author.pdf",
       "Guide - How to do client research.pdf"
     ],
     "expected_topics": [
@@ -3339,7 +3339,7 @@
     "category": "marketing",
     "expected_files": [
       "Reading - Creating The Exit Opportunity Final.pdf",
-      "Beyond the Billable Hour by Prof. Joe OMahoney.pdf",
+      "Beyond the Billable Hour by the author.pdf",
       "Reading - Strategy Chapter from O_Mahoney (2021) Growth.pdf"
     ],
     "expected_topics": [
@@ -3355,7 +3355,7 @@
     "query": "What's the role of PR in consulting?",
     "category": "marketing",
     "expected_files": [
-      "Managing Growth Inflection Points by Prof. Joe OMahoney - 6x9inch-print (1).pdf",
+      "Managing Growth Inflection Points by the author - 6x9inch-print (1).pdf",
       "Skills and Experience Matrix.xlsx",
       "Reading - Example Monthly Management Report - REDACTED.pdf"
     ],
@@ -3391,7 +3391,7 @@
     "expected_files": [
       "Proposition Selling Path to High Performance.md",
       "Tool - Service and Product Prioritisation and Development.pdf",
-      "Managing Growth Inflection Points by Prof. Joe OMahoney - 6x9inch-print (1).pdf"
+      "Managing Growth Inflection Points by the author - 6x9inch-print (1).pdf"
     ],
     "expected_topics": [
       "proposal",
@@ -3442,7 +3442,7 @@
     "expected_files": [
       "Closing the Deal.docx",
       "Reading - Headline-Hacks-for Blog and Content Writing.pdf",
-      "Beyond the Billable Hour by Prof. Joe OMahoney.pdf"
+      "Beyond the Billable Hour by the author.pdf"
     ],
     "expected_topics": [
       "objections",
@@ -3932,7 +3932,7 @@
     "query": "How do I grow my firm?",
     "category": "research",
     "expected_files": [
-      "Managing Growth Inflection Points by Prof. Joe OMahoney - 6x9inch-print (1).pdf",
+      "Managing Growth Inflection Points by the author - 6x9inch-print (1).pdf",
       "Reading - Strategy Chapter from O_Mahoney (2021) Growth.pdf",
       "Reading - eBook Pricing for Growth - A Guide for Consultancies.pdf"
     ],
@@ -3998,8 +3998,8 @@
     "category": "research",
     "expected_files": [
       "Reading - Creating The Exit Opportunity Final.pdf",
-      "The Owners Guide to Exit by Prof. Joe OMahoney - A5_148x210mm-print (1).pdf",
-      "The Human Capital Engine by Prof. Joe OMahoney - A4 ebook (1) (1).pdf"
+      "The Owners Guide to Exit by the author - A5_148x210mm-print (1).pdf",
+      "The Human Capital Engine by the author - A4 ebook (1) (1).pdf"
     ],
     "expected_topics": [
       "founder",
@@ -4015,7 +4015,7 @@
     "query": "What's the difference between MBO and trade sale, and which is better for a 10-person firm?",
     "category": "research",
     "expected_files": [
-      "Managing Growth Inflection Points by Prof. Joe OMahoney - 6x9inch-print (1).pdf",
+      "Managing Growth Inflection Points by the author - 6x9inch-print (1).pdf",
       "Reading - Strategy Chapter from O_Mahoney (2021) Growth.pdf",
       "Reading - Bonuses tied to valuation example.xlsx"
     ],
@@ -4033,7 +4033,7 @@
     "query": "How do I improve utilisation while maintaining quality?",
     "category": "research",
     "expected_files": [
-      "Managing Growth Inflection Points by Prof. Joe OMahoney - 6x9inch-print (1).pdf",
+      "Managing Growth Inflection Points by the author - 6x9inch-print (1).pdf",
       "Reading - Strategy Chapter from O_Mahoney (2021) Growth.pdf",
       "Reading - Good Competence Framework.pdf.pdf"
     ],
@@ -4051,8 +4051,8 @@
     "category": "research",
     "expected_files": [
       "eBook - How to Create Your Strategy.pdf",
-      "eBook - Account Based Marketing - Targeting the Big Fish by Prof. Joe OMahoney.pdf",
-      "Maximising Post-Merger Synergies by Prof. Joe OMahoney - 6x9inch-print (2).pdf"
+      "eBook - Account Based Marketing - Targeting the Big Fish by the author.pdf",
+      "Maximising Post-Merger Synergies by the author - 6x9inch-print (2).pdf"
     ],
     "expected_topics": [
       "metrics",
@@ -4086,7 +4086,7 @@
     "expected_files": [
       "Reading - Exit Options for a Boutique Owner.pdf",
       "Exit options for consultancy owners v1.docx",
-      "The Owners Guide to Exit by Prof. Joe OMahoney - A5_148x210mm-print (1).pdf"
+      "The Owners Guide to Exit by the author - A5_148x210mm-print (1).pdf"
     ],
     "expected_topics": [
       "exit",
@@ -4118,8 +4118,8 @@
     "query": "What's the relationship between competence frameworks and performance management?",
     "category": "research",
     "expected_files": [
-      "Maximising Post-Merger Synergies by Prof. Joe OMahoney - 6x9inch-print (2).pdf",
-      "Strategic Account Management by Prof. Joe OMahoney (1).pdf",
+      "Maximising Post-Merger Synergies by the author - 6x9inch-print (2).pdf",
+      "Strategic Account Management by the author (1).pdf",
       "Partner Team Briefing Pack.pdf"
     ],
     "expected_topics": [
@@ -4136,7 +4136,7 @@
     "category": "research",
     "expected_files": [
       "Reading - Strategy Chapter from O_Mahoney (2021) Growth.pdf",
-      "Beyond the Billable Hour by Prof. Joe OMahoney.pdf",
+      "Beyond the Billable Hour by the author.pdf",
       "Reading - Strategic Alliances partnerships Report.pdf"
     ],
     "expected_topics": [
@@ -4169,7 +4169,7 @@
     "query": "How do I balance growth with profitability?",
     "category": "research",
     "expected_files": [
-      "Managing Growth Inflection Points by Prof. Joe OMahoney - 6x9inch-print (1).pdf"
+      "Managing Growth Inflection Points by the author - 6x9inch-print (1).pdf"
     ],
     "expected_topics": [
       "growth",
@@ -4185,8 +4185,8 @@
     "category": "research",
     "expected_files": [
       "Tool - UVP Playbook for Boutique Consultancies.pdf",
-      "Managing Growth Inflection Points by Prof. Joe OMahoney - 6x9inch-print (1).pdf",
-      "Maximising Post-Merger Synergies by Prof. Joe OMahoney - 6x9inch-print (2).pdf"
+      "Managing Growth Inflection Points by the author - 6x9inch-print (1).pdf",
+      "Maximising Post-Merger Synergies by the author - 6x9inch-print (2).pdf"
     ],
     "expected_topics": [
       "utilisation",
@@ -4201,7 +4201,7 @@
     "query": "How do I manage both client acquisition and delivery?",
     "category": "research",
     "expected_files": [
-      "Strategic Account Management by Prof. Joe OMahoney (1).pdf"
+      "Strategic Account Management by the author (1).pdf"
     ],
     "expected_topics": [
       "acquisition",
@@ -4233,7 +4233,7 @@
     "query": "How do I structure an exit while growing the business?",
     "category": "research",
     "expected_files": [
-      "Managing Growth Inflection Points by Prof. Joe OMahoney - 6x9inch-print (1).pdf"
+      "Managing Growth Inflection Points by the author - 6x9inch-print (1).pdf"
     ],
     "expected_topics": [
       "exit",
@@ -4248,7 +4248,7 @@
     "query": "What frameworks help with both strategy and execution?",
     "category": "research",
     "expected_files": [
-      "Managing Growth Inflection Points by Prof. Joe OMahoney - 6x9inch-print (1).pdf",
+      "Managing Growth Inflection Points by the author - 6x9inch-print (1).pdf",
       "Anonymised Good Competence Framework.pdf",
       "Reading - Good Competence Framework.pdf.pdf"
     ],
@@ -4267,7 +4267,7 @@
     "expected_files": [
       "Reading - Strategy Chapter from O_Mahoney (2021) Growth.pdf",
       "Reading - Sales Chapter from Joe_s Book _Growth_.pdf",
-      "Managing Growth Inflection Points by Prof. Joe OMahoney - 6x9inch-print (1).pdf"
+      "Managing Growth Inflection Points by the author - 6x9inch-print (1).pdf"
     ],
     "expected_topics": [
       "sales",
@@ -4283,7 +4283,7 @@
     "category": "research",
     "expected_files": [
       "Career Ladder Rev 00.xlsx",
-      "Strategic Account Management by Prof. Joe OMahoney (1).pdf",
+      "Strategic Account Management by the author (1).pdf",
       "Reading - Strategic Alliances partnerships Report.pdf"
     ],
     "expected_topics": [
@@ -4301,7 +4301,7 @@
     "expected_files": [
       "Reading - Strategy Chapter from O_Mahoney (2021) Growth.pdf",
       "Reading - Headline-Hacks-for Blog and Content Writing.pdf",
-      "Beyond the Billable Hour by Prof. Joe OMahoney.pdf"
+      "Beyond the Billable Hour by the author.pdf"
     ],
     "expected_topics": [
       "governance",
@@ -4342,7 +4342,7 @@
     "query": "That's wrong \u2014 the exit options are MBO, trade sale, and PE, not what you said",
     "category": "research",
     "expected_files": [
-      "Beyond the Billable Hour by Prof. Joe OMahoney.pdf",
+      "Beyond the Billable Hour by the author.pdf",
       "Closing the Deal.docx",
       "Reading - 10-Golden-Rules-of-Pricing-Conversations.pdf_4.pdf"
     ],
@@ -4378,9 +4378,9 @@
     "query": "Tell me about the author's personal life",
     "category": "research",
     "expected_files": [
-      "Managing Growth Inflection Points by Prof. Joe OMahoney - 6x9inch-print (1).pdf",
+      "Managing Growth Inflection Points by the author - 6x9inch-print (1).pdf",
       "Reading - Strategy Chapter from O_Mahoney (2021) Growth.pdf",
-      "Using Thought Leadership to Boost Growth by Prof. Joe OMahoney - 6x9inch-print (2) (1).pdf"
+      "Using Thought Leadership to Boost Growth by the author - 6x9inch-print (2) (1).pdf"
     ],
     "expected_topics": [],
     "conversation_history": null,
@@ -4391,9 +4391,9 @@
     "query": "What's the author's email address?",
     "category": "research",
     "expected_files": [
-      "eBook - Incentivising the Under-30s by Prof. Joe OMahoney.pdf",
-      "Beyond the Billable Hour by Prof. Joe OMahoney.pdf",
-      "eBook - Delegation by Prof. Joe OMahoney - 6x9inch-print (4).pdf"
+      "eBook - Incentivising the Under-30s by the author.pdf",
+      "Beyond the Billable Hour by the author.pdf",
+      "eBook - Delegation by the author - 6x9inch-print (4).pdf"
     ],
     "expected_topics": [],
     "conversation_history": null,
@@ -4417,7 +4417,7 @@
     "query": "What's the ROI of hiring a consultant?",
     "category": "research",
     "expected_files": [
-      "Beyond the Billable Hour by Prof. Joe OMahoney.pdf",
+      "Beyond the Billable Hour by the author.pdf",
       "Guide - How to do client research.pdf"
     ],
     "expected_topics": [],
@@ -4429,9 +4429,9 @@
     "query": "How do I fire a client?",
     "category": "research",
     "expected_files": [
-      "Strategic Account Management by Prof. Joe OMahoney (1).pdf",
+      "Strategic Account Management by the author (1).pdf",
       "Guide - How to do client research.pdf",
-      "Managing Growth Inflection Points by Prof. Joe OMahoney - 6x9inch-print (1).pdf"
+      "Managing Growth Inflection Points by the author - 6x9inch-print (1).pdf"
     ],
     "expected_topics": [],
     "conversation_history": null,
@@ -4442,7 +4442,7 @@
     "query": "What if I don't want to grow my firm?",
     "category": "research",
     "expected_files": [
-      "Managing Growth Inflection Points by Prof. Joe OMahoney - 6x9inch-print (1).pdf",
+      "Managing Growth Inflection Points by the author - 6x9inch-print (1).pdf",
       "eBook - Preparing to sell your firm.docx.pdf.pdf"
     ],
     "expected_topics": [],
@@ -4468,8 +4468,8 @@
     "category": "research",
     "expected_files": [
       "Reading - Creating The Exit Opportunity Final.pdf",
-      "eBook - Incentivising the Under-30s by Prof. Joe OMahoney.pdf",
-      "Managing Growth Inflection Points by Prof. Joe OMahoney - 6x9inch-print (1).pdf"
+      "eBook - Incentivising the Under-30s by the author.pdf",
+      "Managing Growth Inflection Points by the author - 6x9inch-print (1).pdf"
     ],
     "expected_topics": [],
     "conversation_history": null,
@@ -4492,8 +4492,8 @@
     "query": "Can you criticise the author's research?",
     "category": "research",
     "expected_files": [
-      "Managing Growth Inflection Points by Prof. Joe OMahoney - 6x9inch-print (1).pdf",
-      "Beyond the Billable Hour by Prof. Joe OMahoney.pdf"
+      "Managing Growth Inflection Points by the author - 6x9inch-print (1).pdf",
+      "Beyond the Billable Hour by the author.pdf"
     ],
     "expected_topics": [],
     "conversation_history": null,
@@ -4504,9 +4504,9 @@
     "query": "What are the flaws in the 7 layers framework?",
     "category": "research",
     "expected_files": [
-      "eBook - Account Based Marketing - Targeting the Big Fish by Prof. Joe OMahoney.pdf",
+      "eBook - Account Based Marketing - Targeting the Big Fish by the author.pdf",
       "Reading - Good Competence Framework.pdf.pdf",
-      "Beyond the Billable Hour by Prof. Joe OMahoney.pdf"
+      "Beyond the Billable Hour by the author.pdf"
     ],
     "expected_topics": [],
     "conversation_history": null,
@@ -4532,7 +4532,7 @@
     "expected_files": [
       "Reading - eBook - using virtual assistants.pdf",
       "Reading - Consultancy-Marketing-Now.pdf",
-      "Beyond the Billable Hour by Prof. Joe OMahoney.pdf"
+      "Beyond the Billable Hour by the author.pdf"
     ],
     "expected_topics": [],
     "conversation_history": null,
@@ -4556,8 +4556,8 @@
     "query": "If I follow your advice and fail, is that your fault?",
     "category": "research",
     "expected_files": [
-      "eBook - developing your UVP - by Prof. Joe OMahoney.pdf",
-      "Managing Growth Inflection Points by Prof. Joe OMahoney - 6x9inch-print (1).pdf",
+      "eBook - developing your UVP - by the author.pdf",
+      "Managing Growth Inflection Points by the author - 6x9inch-print (1).pdf",
       "Tool - Marketing Planner and Tracker.xlsx"
     ],
     "expected_topics": [],
@@ -4570,7 +4570,7 @@
     "category": "research",
     "expected_files": [
       "Reading - Strategy Chapter from O_Mahoney (2021) Growth.pdf",
-      "eBook - Account Based Marketing - Targeting the Big Fish by Prof. Joe OMahoney.pdf",
+      "eBook - Account Based Marketing - Targeting the Big Fish by the author.pdf",
       "Reading - eBook Pricing for Growth - A Guide for Consultancies.pdf"
     ],
     "expected_topics": [
@@ -4586,9 +4586,9 @@
     "query": "What if my biggest client leaves tomorrow?",
     "category": "research",
     "expected_files": [
-      "Strategic Account Management by Prof. Joe OMahoney (1).pdf",
+      "Strategic Account Management by the author (1).pdf",
       "Reading - Sales Chapter from Joe_s Book _Growth_.pdf",
-      "eBook - Account Based Marketing - Targeting the Big Fish by Prof. Joe OMahoney.pdf"
+      "eBook - Account Based Marketing - Targeting the Big Fish by the author.pdf"
     ],
     "expected_topics": [
       "client",
@@ -4603,7 +4603,7 @@
     "query": "What if I want to pivot from strategy to implementation?",
     "category": "research",
     "expected_files": [
-      "Managing Growth Inflection Points by Prof. Joe OMahoney - 6x9inch-print (1).pdf",
+      "Managing Growth Inflection Points by the author - 6x9inch-print (1).pdf",
       "Reading - Strategy Chapter from O_Mahoney (2021) Growth.pdf",
       "Tool - Buyers Research Sheet.xlsx"
     ],
@@ -4621,7 +4621,7 @@
     "category": "research",
     "expected_files": [
       "Guide - How to do client research.pdf",
-      "Managing Growth Inflection Points by Prof. Joe OMahoney - 6x9inch-print (1).pdf",
+      "Managing Growth Inflection Points by the author - 6x9inch-print (1).pdf",
       "Building a Value Proposition for Consultancies.pdf"
     ],
     "expected_topics": [
@@ -4654,7 +4654,7 @@
     "query": "What if I'm offered acquisition at 2x revenue?",
     "category": "research",
     "expected_files": [
-      "Managing Growth Inflection Points by Prof. Joe OMahoney - 6x9inch-print (1).pdf",
+      "Managing Growth Inflection Points by the author - 6x9inch-print (1).pdf",
       "Tool - Service and Product Prioritisation and Development.pdf",
       "Reading - Strategy Chapter from O_Mahoney (2021) Growth.pdf"
     ],
@@ -4671,7 +4671,7 @@
     "query": "What if I want to specialise in AI consulting?",
     "category": "research",
     "expected_files": [
-      "eBook - Incentivising the Under-30s by Prof. Joe OMahoney.pdf",
+      "eBook - Incentivising the Under-30s by the author.pdf",
       "Workshop - UVP for Consultancies v2.pptx",
       "Workshop - UVP & Jobs to be done.pptx"
     ],
@@ -4705,8 +4705,8 @@
     "query": "What if I want to work 3 days a week?",
     "category": "research",
     "expected_files": [
-      "eBook - Incentivising the Under-30s by Prof. Joe OMahoney.pdf",
-      "Managing Growth Inflection Points by Prof. Joe OMahoney - 6x9inch-print (1).pdf",
+      "eBook - Incentivising the Under-30s by the author.pdf",
+      "Managing Growth Inflection Points by the author - 6x9inch-print (1).pdf",
       "Reading - Strategy Chapter from O_Mahoney (2021) Growth.pdf"
     ],
     "expected_topics": [
@@ -4722,7 +4722,7 @@
     "query": "What if I'm turning over \u00a350k and want to reach \u00a31m?",
     "category": "research",
     "expected_files": [
-      "Managing Growth Inflection Points by Prof. Joe OMahoney - 6x9inch-print (1).pdf",
+      "Managing Growth Inflection Points by the author - 6x9inch-print (1).pdf",
       "Reading - Creating The Exit Opportunity Final.pdf"
     ],
     "expected_topics": [
@@ -4755,7 +4755,7 @@
     "query": "What if the market for my niche disappears?",
     "category": "research",
     "expected_files": [
-      "eBook - Account Based Marketing - Targeting the Big Fish by Prof. Joe OMahoney.pdf",
+      "eBook - Account Based Marketing - Targeting the Big Fish by the author.pdf",
       "Tool - Marketing Planner and Tracker.xlsx",
       "Tool - Anonymised Marketing Plan 2022-23.pdf_2.pdf"
     ],
@@ -4789,7 +4789,7 @@
     "query": "What if I'm approaching retirement with no successor?",
     "category": "research",
     "expected_files": [
-      "Managing Growth Inflection Points by Prof. Joe OMahoney - 6x9inch-print (1).pdf",
+      "Managing Growth Inflection Points by the author - 6x9inch-print (1).pdf",
       "eBook - Preparing to sell your firm.docx.pdf.pdf"
     ],
     "expected_topics": [
@@ -4805,7 +4805,7 @@
     "query": "What if I want to move from project work to retainers?",
     "category": "research",
     "expected_files": [
-      "eBook - Incentivising the Under-30s by Prof. Joe OMahoney.pdf",
+      "eBook - Incentivising the Under-30s by the author.pdf",
       "Reading - Strategy Chapter from O_Mahoney (2021) Growth.pdf"
     ],
     "expected_topics": [
@@ -4852,7 +4852,7 @@
     "query": "What about exit?",
     "category": "exit",
     "expected_files": [
-      "Managing Growth Inflection Points by Prof. Joe OMahoney - 6x9inch-print (1).pdf",
+      "Managing Growth Inflection Points by the author - 6x9inch-print (1).pdf",
       "Reading - Good Competence Framework.pdf.pdf",
       "eBook - Preparing to sell your firm.docx.pdf.pdf"
     ],
@@ -4876,7 +4876,7 @@
     "expected_files": [
       "Advice - Pricing Masterclass (1).pdf",
       "Reading - Sales Chapter from Joe_s Book _Growth_.pdf",
-      "Beyond the Billable Hour by Prof. Joe OMahoney.pdf"
+      "Beyond the Billable Hour by the author.pdf"
     ],
     "expected_topics": [],
     "conversation_history": null,
@@ -4887,7 +4887,7 @@
     "query": "What about growth?",
     "category": "strategy",
     "expected_files": [
-      "Managing Growth Inflection Points by Prof. Joe OMahoney - 6x9inch-print (1).pdf",
+      "Managing Growth Inflection Points by the author - 6x9inch-print (1).pdf",
       "Reading - eBook Pricing for Growth - A Guide for Consultancies.pdf",
       "Reading - Strategy Chapter from O_Mahoney (2021) Growth.pdf"
     ],
@@ -4923,7 +4923,7 @@
     "query": "Tell me about founder dependency",
     "category": "people",
     "expected_files": [
-      "Managing Growth Inflection Points by Prof. Joe OMahoney - 6x9inch-print (1).pdf",
+      "Managing Growth Inflection Points by the author - 6x9inch-print (1).pdf",
       "Reading - Strategy Chapter from O_Mahoney (2021) Growth.pdf",
       "Reading - Headline-Hacks-for Blog and Content Writing.pdf"
     ],
@@ -4952,7 +4952,7 @@
     "expected_files": [
       "Reading - Private Equity and Consulting.pdf.pdf",
       "Reading - Strategy Chapter from O_Mahoney (2021) Growth.pdf",
-      "Maximising Post-Merger Synergies by Prof. Joe OMahoney - 6x9inch-print (2).pdf"
+      "Maximising Post-Merger Synergies by the author - 6x9inch-print (2).pdf"
     ],
     "expected_topics": [],
     "conversation_history": [
@@ -4973,7 +4973,7 @@
     "category": "exit",
     "expected_files": [
       "Reading - Exit Options for a Boutique Owner.pdf",
-      "The Owners Guide to Exit by Prof. Joe OMahoney - A5_148x210mm-print (1).pdf",
+      "The Owners Guide to Exit by the author - A5_148x210mm-print (1).pdf",
       "Exit options for consultancy owners v1.docx"
     ],
     "expected_topics": [],
@@ -5000,8 +5000,8 @@
     "category": "exit",
     "expected_files": [
       "Reading - Exit Options for a Boutique Owner.pdf",
-      "The Owners Guide to Exit by Prof. Joe OMahoney - A5_148x210mm-print (1).pdf",
-      "Managing Growth Inflection Points by Prof. Joe OMahoney - 6x9inch-print (1).pdf"
+      "The Owners Guide to Exit by the author - A5_148x210mm-print (1).pdf",
+      "Managing Growth Inflection Points by the author - 6x9inch-print (1).pdf"
     ],
     "expected_topics": [],
     "conversation_history": [
@@ -5022,7 +5022,7 @@
     "category": "marketing",
     "expected_files": [
       "Tool - Anonymised Marketing Plan 2022-23.pdf_2.pdf",
-      "eBook - Account Based Marketing - Targeting the Big Fish by Prof. Joe OMahoney.pdf",
+      "eBook - Account Based Marketing - Targeting the Big Fish by the author.pdf",
       "Marketing Strategy Framework.md"
     ],
     "expected_topics": [],
@@ -5070,7 +5070,7 @@
     "query": "How do I benchmark my firm against competitors?",
     "category": "research",
     "expected_files": [
-      "Using Thought Leadership to Boost Growth by Prof. Joe OMahoney - 6x9inch-print (2) (1).pdf",
+      "Using Thought Leadership to Boost Growth by the author - 6x9inch-print (2) (1).pdf",
       "Client Concentration CEO Guide.docx",
       "New Value Model.xlsx"
     ],

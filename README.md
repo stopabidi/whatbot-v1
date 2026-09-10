@@ -1,11 +1,11 @@
-# WhatBot v2 V5
+# AskJoe V5
 
 WhatsApp-based RAG bot for querying consulting research.
 
 ## Architecture
 
 ```
-WhatsApp (Twilio) → whatbot-v2-bridge (Node.js) → rag-api (FastAPI) → vLLM (Gemma-4-12B) → ChromaDB
+WhatsApp (Twilio) → askjoe-bridge (Node.js) → rag-api (FastAPI) → vLLM (Gemma-4-12B) → ChromaDB
 ```
 
 ## Quick Start
@@ -22,7 +22,7 @@ WhatsApp (Twilio) → whatbot-v2-bridge (Node.js) → rag-api (FastAPI) → vLLM
 | Service | Port | Description |
 |---------|------|-------------|
 | `rag-api` | 8002 | RAG API (FastAPI + ChromaDB + embeddings) |
-| `whatbot-v2-bridge` | 3000 | WhatsApp webhook + dashboard |
+| `askjoe-bridge` | 3000 | WhatsApp webhook + dashboard |
 | `vllm` | 8000 | LLM inference (Gemma-4-12B) |
 
 ## Environment Variables
