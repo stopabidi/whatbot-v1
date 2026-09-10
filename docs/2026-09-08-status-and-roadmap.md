@@ -44,7 +44,7 @@
 - Zero errors across all queries
 - Empty answers fixed (192 → 4)
 - Latency acceptable (13s avg)
-- Joe personal attributions: ZERO (model never says "Joe's work" or "O'Mahoney")
+- Joe personal attributions: ZERO (model never says "[CLIENT]'s work" or "O'Mahoney")
 
 ### What needs work
 - **Refusals (20.7%)** — model too conservative, refuses when it could answer

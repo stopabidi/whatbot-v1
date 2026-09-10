@@ -1,5 +1,5 @@
 const TEMPLATES = {
-  unknown_user: (ctx) => `Hello! I don't recognize this number. Please share this code with Mr. Joe O'Mahoney so he can add you:\n\n*${ctx.code}*\n\nOnce approved, you can ask questions about the research.`,
+  unknown_user: (ctx) => `Hello! I don't recognize this number. Please share this code with Mr. [CLIENT] so he can add you:\n\n*${ctx.code}*\n\nOnce approved, you can ask questions about the research.`,
   rate_limited: () => "You're sending messages too quickly. Please wait a moment.",
   error: () => "I'm sorry, I encountered an error processing your question. Please try again.",
   file_not_found: (ctx) => `I couldn't find "${ctx.name}". Available documents:\n${ctx.docs.map(d => `- ${d}`).join('\n')}`,

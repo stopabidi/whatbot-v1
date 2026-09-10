@@ -81,7 +81,7 @@ TOOLS = [
         "type": "function",
         "function": {
             "name": "search_documents",
-            "description": "Search Joe O'Mahoney's consulting research documents. Use this when you need specific information from Joe's published work about consulting, strategy, management, pricing, growth, exits, or professional services.",
+            "description": "Search [CLIENT]'s consulting research documents. Use this when you need specific information from [CLIENT]'s published work about consulting, strategy, management, pricing, growth, exits, or professional services.",
             "parameters": {
                 "type": "object",
                 "properties": {

@@ -1,6 +1,6 @@
 # WhatBot v1 OV3
 
-Document RAG AI bot for querying Joe O'Mahoney's published work via WhatsApp.
+Document RAG AI bot for querying [CLIENT]'s published work via WhatsApp.
 
 ## Architecture
 

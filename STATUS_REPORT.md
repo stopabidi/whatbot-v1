@@ -8,7 +8,7 @@
 
 ## Executive Summary
 
-WhatBot v1 V5 is a WhatsApp-based RAG bot for querying Professor Joe O'Mahoney's consulting research. The system uses vLLM for inference, Gemma-4-12B for responses, and ChromaDB + bge-m3 for document retrieval. All services are healthy, tool calling works, and the 800-query eval passes targets.
+WhatBot v1 V5 is a WhatsApp-based RAG bot for querying [CLIENT]'s consulting research. The system uses vLLM for inference, Gemma-4-12B for responses, and ChromaDB + bge-m3 for document retrieval. All services are healthy, tool calling works, and the 800-query eval passes targets.
 
 ---
 
