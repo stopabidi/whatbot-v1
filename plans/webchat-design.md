@@ -8,7 +8,7 @@
 
 ## 1. Goal
 
-Add a webchat interface to the AskJoe dashboard so Joe (single admin user) can:
+Add a webchat interface to the WhatBot v2 dashboard so Joe (single admin user) can:
 - Query the RAG system directly from the browser
 - Manage multiple persistent conversations
 - Send documents inline from chat responses
@@ -21,12 +21,12 @@ No WhatsApp needed — this is a direct admin interface.
 
 ### Current flow (WhatsApp):
 ```
-WhatsApp → Twilio → askjoe-bridge (Node.js) → rag-api (FastAPI) → vLLM
+WhatsApp → Twilio → whatbot-v2-bridge (Node.js) → rag-api (FastAPI) → vLLM
 ```
 
 ### New flow (Webchat):
 ```
-Browser → askjoe-bridge (Node.js) → rag-api (FastAPI) → vLLM
+Browser → whatbot-v2-bridge (Node.js) → rag-api (FastAPI) → vLLM
                       ↓
                chats.json (persistent storage)
 ```
@@ -85,7 +85,7 @@ The browser calls the Node.js bridge directly. The bridge proxies queries to the
 
 ### File structure:
 ```
-askjoe-bridge/
+whatbot-v2-bridge/
 ├── src/
 │   ├── chatStore.js      (new — CRUD for chats.json)
 │   ├── chatRoutes.js     (new — Express routes for chat API)

@@ -1,4 +1,4 @@
-# AskJoe V5 — Final Status Report
+# WhatBot v2 V5 — Final Status Report
 
 **Date:** 10 Sep 2026
 **Status:** ✅ Shipped
@@ -8,14 +8,14 @@
 
 ## Executive Summary
 
-AskJoe V5 is a WhatsApp-based RAG bot for querying consulting research. Uses vLLM for inference, Gemma-4-12B for responses, ChromaDB + bge-m3 for document retrieval. Tool calling works, markdown formatting converts cleanly, file sending resolves follow-up references, and 300-query eval passes at 87%+ accuracy.
+WhatBot v2 V5 is a WhatsApp-based RAG bot for querying consulting research. Uses vLLM for inference, Gemma-4-12B for responses, ChromaDB + bge-m3 for document retrieval. Tool calling works, markdown formatting converts cleanly, file sending resolves follow-up references, and 300-query eval passes at 87%+ accuracy.
 
 ---
 
 ## Architecture
 
 ```
-WhatsApp (Twilio) → askjoe-bridge (Node.js, port 3000)
+WhatsApp (Twilio) → whatbot-v2-bridge (Node.js, port 3000)
                           ↓
                     rag-api (Python/FastAPI, port 8002)
                           ↓
@@ -90,7 +90,7 @@ WhatsApp (Twilio) → askjoe-bridge (Node.js, port 3000)
 
 ## Files (Final)
 
-### Core (askjoe-bridge/src/)
+### Core (whatbot-v2-bridge/src/)
 
 | File | Lines | Purpose |
 |------|-------|---------|
@@ -153,7 +153,7 @@ WhatsApp (Twilio) → askjoe-bridge (Node.js, port 3000)
 
 ```bash
 # Start services
-cd /path/to/AskJoe-V2
+cd /path/to/WhatBot v2-V2
 docker compose up -d
 
 # Check health
@@ -161,7 +161,7 @@ curl http://localhost:3000/health
 
 # Restart specific service
 docker restart rag-api
-docker restart askjoe-bridge
+docker restart whatbot-v2-bridge
 docker restart vllm
 ```
 
@@ -170,7 +170,7 @@ docker restart vllm
 ## Backups
 
 - `rag-api.bak/` — pre-converter rag-api code
-- `askjoe-bridge.bak/` — pre-chat askjoe-bridge code
+- `whatbot-v2-bridge.bak/` — pre-chat whatbot-v2-bridge code
 
 ---
 

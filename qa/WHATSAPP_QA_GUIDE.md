@@ -1,4 +1,4 @@
-# AskJoe v5 — WhatsApp QA Guide
+# WhatBot v2 v5 — WhatsApp QA Guide
 
 **Date:** 9 Sep 2026
 **Model:** Gemma-4-12B IT QAT (vLLM)

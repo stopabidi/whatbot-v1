@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// eval/run.js — AskJoe V5 Test Runner
+// eval/run.js — WhatBot v2 V5 Test Runner
 
 const fs = require('fs');
 const path = require('path');

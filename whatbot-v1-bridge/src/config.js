@@ -11,7 +11,7 @@ export const config = {
   storageDir: './storage',
 
   // Bot
-  botName: process.env.BOT_NAME || "AskJoe V5, Document Assistant",
+  botName: process.env.BOT_NAME || "WhatBot v2 V5, Document Assistant",
   welcomeMessage: process.env.WELCOME_MESSAGE || "Hello! I help answer questions about the published research.",
 
   // Dashboard

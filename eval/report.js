@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// eval/report.js — AskJoe V5 Eval Report Generator
+// eval/report.js — WhatBot v2 V5 Eval Report Generator
 
 const fs = require('fs');
 const path = require('path');
@@ -101,7 +101,7 @@ function generateSummary(data) {
 
 function writeReport(data, summary, citations, contents) {
   const lines = [];
-  lines.push('# AskJoe V5 — Eval Report');
+  lines.push('# WhatBot v2 V5 — Eval Report');
   lines.push('');
   lines.push(`**Date:** ${data.timestamp}`);
   lines.push(`**Queries:** ${summary.total}`);

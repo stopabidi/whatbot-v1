@@ -30,9 +30,9 @@ services:
       retries: 3
       start_period: 30s
 
-  askjoe-bridge:
-    build: ./askjoe-bridge
-    container_name: askjoe-bridge
+  whatbot-v2-bridge:
+    build: ./whatbot-v2-bridge
+    container_name: whatbot-v2-bridge
     network_mode: host
     depends_on:
       rag-api:
