@@ -1,0 +1,53 @@
+services:
+  rag-api:
+    build: ./rag-api
+    container_name: rag-api
+    network_mode: host
+    runtime: nvidia
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    volumes:
+      - ./documents:/app/documents
+      - ./storage:/app/storage
+      - ./chroma_db:/app/chroma_db
+      - ./logs:/app/logs
+    env_file: .env
+    environment:
+      - LLAMA_SWAP_URL=http://your-server-ip:8080
+      - LLAMA_MODEL=${LLAMA_MODEL:-/path/to/model.gguf}
+      - EMBED_MODEL_NAME=BAAI/bge-m3
+    stop_grace_period: 10s
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8002/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
+
+  whatbot-v1-bridge:
+    build: ./whatbot-v1-bridge
+    container_name: whatbot-v1-bridge
+    network_mode: host
+    depends_on:
+      rag-api:
+        condition: service_started
+    volumes:
+      - ./storage:/app/storage
+      - ./documents:/app/documents
+      - ./logs:/app/logs
+    env_file: .env
+    environment:
+      - LLAMA_SWAP_URL=http://your-server-ip:8080
+      - RAG_API_URL=http://127.0.0.1:8002
+      - TWILIO_ACCOUNT_SID=${TWILIO_ACCOUNT_SID}
+      - TWILIO_AUTH_TOKEN=${TWILIO_AUTH_TOKEN}
+      - TWILIO_WHATSAPP_NUMBER=${TWILIO_WHATSAPP_NUMBER}
+      - PUBLIC_URL=${PUBLIC_URL:-https://your-domain.com}
+    stop_grace_period: 5s
+    restart: unless-stopped
