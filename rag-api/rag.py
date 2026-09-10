@@ -1,5 +1,5 @@
 """
-WhatBot v1 OV3 — Tool-Calling Architecture
+AskJoe OV3 — Tool-Calling Architecture
 
 The LLM is the brain. RAG is a tool.
 - search_documents: LLM calls this when it needs information from Joe's docs
@@ -81,7 +81,7 @@ TOOLS = [
         "type": "function",
         "function": {
             "name": "search_documents",
-            "description": "Search [CLIENT]'s consulting research documents. Use this when you need specific information from [CLIENT]'s published work about consulting, strategy, management, pricing, growth, exits, or professional services.",
+            "description": "Search the consulting research documents. Use this when you need specific information about consulting, strategy, management, pricing, growth, exits, or professional services.",
             "parameters": {
                 "type": "object",
                 "properties": {
@@ -98,7 +98,7 @@ TOOLS = [
         "type": "function",
         "function": {
             "name": "send_document",
-            "description": "Send a document file to the user via WhatsApp. Call this IMMEDIATELY when the user asks to receive, download, or be sent a file, paper, or document. Do NOT search first — do NOT use search_documents — just send the file directly.",
+            "description": "Send a document file to the user via WhatsApp. Call this IMMEDIATELY when the user asks to receive, download, or be sent a file, paper, or document. For follow-up requests like 'send me that', 'send me this', or 'send the file you mentioned', look at your previous response in the conversation and use the filename you just cited. If the user's request is vague and you cannot determine which file they want, ask a clarifying question like 'Which document would you like me to send?' Do NOT list available documents. Do NOT search first — just send the file directly.",
             "parameters": {
                 "type": "object",
                 "properties": {
@@ -118,11 +118,20 @@ TOOLS = [
 # SYSTEM PROMPT (Joe's Writing Style)
 # =============================================================================
 
-SYSTEM_PROMPT = """You are WhatBot v1, a senior consultant who specialises in professional services.
+SYSTEM_PROMPT = """You are AskJoe, a senior consultant who specialises in professional services.
 
 TOOLS:
-- search_documents: Use ONCE when you need specific facts. Never search multiple times.
+- search_documents: ALWAYS call this before answering ANY question about consulting, strategy, pricing, growth, exits, people, delivery, marketing, or professional services. Do NOT rely on your own knowledge. Search first, then answer from the results. Never skip the search.
 - send_document: Use IMMEDIATELY when the user asks to receive, download, or be sent a file. Do not search first.
+
+EXCEPTIONS — do NOT search for:
+- Greetings (hello, hi, good morning, how are you)
+- Thank you messages (thanks, cheers)
+- Refusals (hacking, politics, poems, weather)
+- Follow-up questions that refer to a previous answer in the same conversation
+
+FILE REQUESTS:
+When a user asks to receive or send a file, use the send_document tool. For follow-up requests like 'send me that', 'send it', or 'send the file you mentioned', look at your previous response in the conversation history and use the exact filename you cited. If you cannot determine which file they want, ask a clarifying question — do NOT list available documents.
 
 ANSWERING:
 If search results are even partially relevant, answer with what you have. Synthesize from available information. Only refuse if you found nothing on the topic at all.
@@ -823,14 +832,16 @@ def _execute_send_document(filename):
         if filename_lower in doc.lower() or doc.lower() in filename_lower:
             return f"send_file:{doc}"
     
-    # Try partial match — at least 1 word overlap
+    # Try partial match — at least 1 meaningful word overlap
+    # Split on underscores, hyphens, and spaces, exclude file extensions
+    _EXT_WORDS = {'pdf', 'doc', 'docx', 'xlsx', 'xls', 'pptx', 'ppt', 'png', 'jpg', 'jpeg', 'csv'}
+    query_words = set(re.findall(r'[a-z]{3,}', filename_lower.replace('_', ' ').replace('-', ' '))) - _EXT_WORDS
     for doc in doc_list:
-        doc_words = set(re.findall(r'[a-z]{3,}', doc.lower()))
-        query_words = set(filename_lower.split())
+        doc_words = set(re.findall(r'[a-z]{3,}', doc.lower().replace('_', ' ').replace('-', ' '))) - _EXT_WORDS
         if len(doc_words & query_words) >= 1:
             return f"send_file:{doc}"
     
-    return f"Document '{filename}' not found. Available documents: {', '.join(doc_list[:10])}..."
+    return f"Document '{filename}' not found. Ask the user which specific document they want, or try a different search term."
 
 
 # =============================================================================
@@ -992,6 +1003,22 @@ async def query_rag(question, history=None):
     
     # Add current question
     messages.append({"role": "user", "content": question})
+    
+    # Force search for all research queries — LLM skips search when it thinks it knows
+    _GREETINGS = {'hello', 'hi', 'hey', 'good morning', 'good evening', 'how are you', 'thanks', 'thank you', 'cheers'}
+    _REFUSALS = {'hack', 'poem', 'weather', 'politics', 'meaning of life', 'quantum', 'joke', 'dan'}
+    q_lower = question.lower().strip().rstrip('?!.')
+    is_greeting = any(q_lower.startswith(g) or q_lower == g for g in _GREETINGS)
+    is_refusal = any(r in q_lower for r in _REFUSALS)
+    is_file_send = 'send' in q_lower or 'share' in q_lower or 'download' in q_lower
+    should_search = not is_greeting and not is_refusal and not is_file_send
+
+    # Pre-search: inject results before LLM sees the question
+    if should_search:
+        print(f"[PRE_SEARCH] Forcing search for: {question[:60]}")
+        search_result = await asyncio.to_thread(_execute_search, question)
+        if search_result and search_result != "No relevant information found in Joe's documents.":
+            messages.append({"role": "tool", "tool_call_id": "pre_search", "content": search_result})
     
     # Tool calling loop (max 3 iterations to prevent infinite loops)
     max_iterations = 3

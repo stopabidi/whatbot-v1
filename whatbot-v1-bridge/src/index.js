@@ -1,6 +1,6 @@
 import { startServer } from './server.js';
 
-console.log('[INIT] WhatBot v1 — WhatsApp Bridge');
+console.log('[INIT] AskJoe — WhatsApp Bridge');
 console.log('[INIT] Webhook endpoint ready at /webhook');
 
 // Start Express server

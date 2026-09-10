@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Train WhatBot v1 v9 — Llama-3.1-8B-Instruct QLoRA
+Train AskJoe v9 — Llama-3.1-8B-Instruct QLoRA
 """
 
 import json
@@ -17,11 +17,11 @@ from datasets import load_dataset
 
 MODEL_NAME = "unsloth/Meta-Llama-3.1-8B-bnb-4bit"
 MAX_SEQ_LENGTH = 4096
-OUTPUT_DIR = "/path/to/finetune/outputs_v9"
-FINAL_MODEL_DIR = "/path/to/finetune/model_v9"
+OUTPUT_DIR = "/path/to/outputs"
+FINAL_MODEL_DIR = "/path/to/model"
 
-TRAIN_PATH = "/path/to/finetune/data/v9/train.jsonl"
-VAL_PATH = "/path/to/finetune/data/v9/validation.jsonl"
+TRAIN_PATH = "/path/to/train.jsonl"
+VAL_PATH = "/path/to/validation.jsonl"
 
 # =============================================================================
 # LOAD MODEL
@@ -241,7 +241,7 @@ print(f"  Saved to {FINAL_MODEL_DIR}")
 print()
 print("Exporting to GGUF...")
 
-GGUF_DIR = "/path/to/finetune/gguf_v9"
+GGUF_DIR = "/path/to/gguf"
 os.environ["UNSLOTH_DISK_PREFLIGHT"] = "0"
 
 model.save_pretrained_gguf(

@@ -11,7 +11,7 @@ export const config = {
   storageDir: './storage',
 
   // Bot
-  botName: process.env.BOT_NAME || "WhatBot v1 V5, Document Assistant",
+  botName: process.env.BOT_NAME || "AskJoe V5, Document Assistant",
   welcomeMessage: process.env.WELCOME_MESSAGE || "Hello! I help answer questions about the published research.",
 
   // Dashboard
@@ -20,7 +20,7 @@ export const config = {
   // Twilio
   twilioAccountSid: process.env.TWILIO_ACCOUNT_SID || '',
   twilioAuthToken: process.env.TWILIO_AUTH_TOKEN || '',
-  twilioWhatsAppNumber: process.env.TWILIO_WHATSAPP_NUMBER || 'whatsapp:+14155238886',
+  twilioWhatsAppNumber: process.env.TWILIO_WHATSAPP_NUMBER || '',
 
   // llama-swap
   vllmUrl: process.env.LLAMA_SWAP_URL || 'http://127.0.0.1:8000',

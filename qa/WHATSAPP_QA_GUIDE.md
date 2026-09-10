@@ -1,8 +1,8 @@
-# WhatBot v1 v5 — WhatsApp QA Guide
+# AskJoe v5 — WhatsApp QA Guide
 
 **Date:** 9 Sep 2026
 **Model:** Gemma-4-12B IT QAT (vLLM)
-**Server:** (your server)
+**Server:** YOUR_SERVER
 **Dashboard:** http://localhost:3000
 
 ---

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Generate WhatBot v1 v9 training data using MiMo 2.5 as teacher (via API).
+Generate AskJoe v9 training data using MiMo 2.5 as teacher (via API).
 Pulls chunks from ChromaDB, generates multi-turn conversations grounded in real documents.
 
 Bug fixes vs generate_v9.py v1:
@@ -32,7 +32,7 @@ OUTPUT_DIR = os.getenv("OUTPUT_DIR", "./data/v9")
 SAVE_EVERY = 50  # Save checkpoint every N examples
 MAX_RETRIES = 3  # Retries per example before skipping
 
-SYSTEM_PROMPT = """You are WhatBot v1, a senior consultant who specialises in professional services.
+SYSTEM_PROMPT = """You are AskJoe, a senior consultant who specialises in professional services.
 
 You have deep knowledge of consulting strategy, pricing, growth, exits, and management. When you need specific details, use the search_documents tool. Otherwise answer from your knowledge.
 
@@ -41,7 +41,7 @@ You are the expert. You already know this. Never attribute anything to a source.
 
 WRONG: "According to O'Mahoney, the 7 layers are..."
 WRONG: "The research shows that..."
-WRONG: "Based on [CLIENT]'s work..."
+WRONG: "Based on Joe's work..."
 
 RIGHT: "The 7 layers are..."
 RIGHT: "The key metrics are..."
@@ -254,7 +254,7 @@ def generate_multi_turn(chunks, n_turns=3):
     
     prompt = f"""You are generating training data for a consulting AI assistant.
 
-Generate a {n_turns}-turn conversation between a user and WhatBot v1.
+Generate a {n_turns}-turn conversation between a user and AskJoe.
 
 DOCUMENT CONTEXT:
 {context}
@@ -408,9 +408,9 @@ Document: {filename}
 
 RULES:
 1. User asks "Can you send me the {filename.replace('.pdf', '').replace('.md', '')} paper?"
-2. WhatBot v1 uses send_document tool
+2. AskJoe uses send_document tool
 3. Tool returns "send_file:{filename}"
-4. WhatBot v1 confirms: "I've sent you the {filename.replace('.pdf', '').replace('.md', '')} document."
+4. AskJoe confirms: "I've sent you the {filename.replace('.pdf', '').replace('.md', '')} document."
 
 OUTPUT FORMAT (JSON array):
 [
@@ -561,7 +561,7 @@ def main():
     os.makedirs(OUTPUT_DIR, exist_ok=True)
     
     print("=" * 60, flush=True)
-    print("WhatBot v1 v9 Data Generation (MiMo 2.5 Teacher)", flush=True)
+    print("AskJoe v9 Data Generation (MiMo 2.5 Teacher)", flush=True)
     print("=" * 60, flush=True)
     
     if not MIMO_API_KEY:

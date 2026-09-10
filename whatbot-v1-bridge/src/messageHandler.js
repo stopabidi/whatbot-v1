@@ -5,11 +5,7 @@ import { isRateLimited } from './rateLimiter.js';
 import { draftMessage } from './draft.js';
 import { sendTextMessageWithRetry, sendDocumentMessage, normalizePhone } from './twilioClient.js';
 import { config } from './config.js';
-import { generateRequestId, logWithRequestId } from './requestId.js';
-import { trackError } from './notifications.js';
-import { recordMetric } from './metrics.js';
-import { logger } from './logger.js';
-import { validateMessage, sanitizeInput } from './validation.js';
+import { sanitizeInput } from './validation.js';
 
 const MAX_MSG_LENGTH = 1600;
 
@@ -84,30 +80,22 @@ function dedup(msgId) {
 }
 
 export async function handleTwilioMessage(message) {
-  const requestId = generateRequestId();
   const phone = normalizePhone(message.from);
   const msgId = message.id;
   const messageText = message.text || '';
 
-  logWithRequestId(requestId, 'RECEIVED', `Message from ${phone}: ${messageText.substring(0, 50)}${messageText.length > 50 ? '...' : ''}`);
-  recordMetric('messagesReceived');
-
-  const validation = validateMessage(message);
-  if (!validation.valid) {
-    logWithRequestId(requestId, 'VALIDATION', `Invalid message: ${validation.errors.join(', ')}`);
-    return;
-  }
+  console.log(`[RECEIVED] Message from ${phone}: ${messageText.substring(0, 50)}${messageText.length > 50 ? '...' : ''}`);
 
   const sanitizedText = sanitizeInput(messageText);
 
   if (dedup(msgId)) {
-    logWithRequestId(requestId, 'DEDUP', 'Duplicate message, skipping');
+    console.log('[DEDUP] Duplicate message, skipping');
     return;
   }
 
   const botNumber = normalizePhone(config.twilioWhatsAppNumber);
   if (phone === botNumber) {
-    logWithRequestId(requestId, 'SELF', 'Message from bot, skipping');
+    console.log('[SELF] Message from bot, skipping');
     return;
   }
 
@@ -157,11 +145,8 @@ export async function handleTwilioMessage(message) {
     // Store only the answer portion (without citations) to avoid confusion
     const answerOnly = reply.split('\n\nReferences:')[0] || reply;
     addToHistory(phone, 'bot', answerOnly);
-    recordMetric('messagesSent');
   } catch (err) {
-    logger.error('messageHandler', `Query failed`, { phone, error: err.message });
-    recordMetric('messagesFailed');
-    trackError('messageHandler', err);
+    console.error(`[messageHandler] Query failed: ${err.message}`);
     await sendTextMessageWithRetry(phone, await draftMessage('error'));
   }
 }
@@ -183,7 +168,7 @@ async function handleFileRequest(phone, requestedName) {
     try {
       await sendDocumentMessage(phone, filePath, filename);
     } catch (err) {
-      logger.error('fileHandler', `Failed to send file`, { filename, error: err.message });
+      console.error(`[fileHandler] Failed to send file: ${err.message}`);
       await sendTextMessageWithRetry(phone, `Failed to send "${filename}": ${err.message}`);
     }
   } else {

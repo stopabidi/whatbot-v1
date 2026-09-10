@@ -102,7 +102,7 @@ export async function sendDocumentMessage(to, filePath, filename) {
   }
 
   // Twilio needs a publicly accessible URL for media
-  const baseUrl = process.env.PUBLIC_URL || 'https://your-domain.com';
+  const baseUrl = process.env.PUBLIC_URL || 'http://localhost:3000';
   // Build URL using relative path from documents dir (files may be in subdirectories)
   const relativePath = path.relative(config.documentsDir, filePath).replace(/\\/g, '/');
   const publicUrl = `${baseUrl}/documents/${encodeURIComponent(relativePath)}`;

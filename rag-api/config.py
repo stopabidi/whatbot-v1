@@ -6,7 +6,7 @@ load_dotenv()
 
 # llama-server — OpenAI-compatible API
 LLAMA_SWAP_URL = os.getenv("LLAMA_SWAP_URL", "http://localhost:8080")
-LLAMA_MODEL = os.getenv("LLAMA_MODEL", "/path/to/model.gguf")
+LLAMA_MODEL = os.getenv("LLAMA_MODEL", "/path/to/your/model")
 LLAMA_TEMPERATURE = float(os.getenv("LLAMA_TEMPERATURE", "0.1"))
 LLAMA_API_KEY = os.getenv("LLAMA_API_KEY", "sk-placeholder")
 

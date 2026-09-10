@@ -1,0 +1,10 @@
+node_modules/
+.env
+storage/
+chroma_db/
+logs/
+documents/
+eval/results/
+eval/reports/
+*.log
+.DS_Store
