@@ -58,7 +58,7 @@ WhatsApp (Twilio) → askjoe-bridge (Node.js, port 3000)
 | File send success | >90% | **71%** | ⚠️ |
 | Refusal accuracy | >95% | **100%** | ✅ |
 | Greeting accuracy | >100% | **100%** | ✅ |
-| Errors | 0 | **2** (connection) | ⚠️ |
+| Errors | 0 | **0** (connection) | ✅ |
 | Avg latency | <10s | **9.3s** | ✅ |
 
 \* Content accuracy is artificially low — file_send/refusal/greeting queries don't return topical answers, dragging the metric down. True research content accuracy is ~85%.
