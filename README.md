@@ -1,4 +1,4 @@
-# AskJoe V5
+# AskJoe V5 - Formerly WhatBot
 
 WhatsApp-based RAG bot for querying consulting research.
 
